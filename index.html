@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>صفحه انتقال</title>
+  <style>
+    /* حذف فاصله پیش‌فرض و تنظیم جهت راست به چپ */
+    body {
+      margin: 0;
+      overflow: hidden;
+      direction: rtl;
+    }
+    /* تنظیم کانتینر صفحات: سه صفحه در یک ردیف */
+    .container {
+      display: flex;
+      width: 300%; /* عرض سه صفحه */
+      transition: transform 0.5s ease-in-out; /* ترنزیشن نرم */
+    }
+    /* استایل هر صفحه */
+    .page {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+    }
+    /* استایل فلش‌ها */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .arrow.left {
+      left: 20px;
+    }
+    .arrow.right {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- کانتینر صفحات -->
+  <div id="pagesContainer" class="container">
+    <div class="page" style="background-color: #f8b500;">صفحه چپ</div>
+    <div class="page" style="background-color: #4caf50;">صفحه اصلی</div>
+    <div class="page" style="background-color: #2196f3;">صفحه راست</div>
+  </div>
+
+  <!-- دکمه‌های فلش -->
+  <div class="arrow left" id="arrowLeft">&#8592;</div>
+  <div class="arrow right" id="arrowRight">&#8594;</div>
+
+  <script>
+    // شاخص صفحه فعلی (صفحه اصلی در وسط)
+    let currentIndex = 1;
+    const container = document.getElementById('pagesContainer');
+    const totalPages = 3;
+    
+    // تابع به‌روزرسانی موقعیت کانتینر بر اساس شاخص صفحه
+    function updatePage() {
+      const offset = -currentIndex * window.innerWidth;
+      container.style.transform = `translateX(${offset}px)`;
+    }
+    
+    // رویداد کلیک فلش چپ
+    document.getElementById('arrowLeft').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updatePage();
+      }
+    });
+    
+    // رویداد کلیک فلش راست
+    document.getElementById('arrowRight').addEventListener('click', () => {
+      if (currentIndex < totalPages - 1) {
+        currentIndex++;
+        updatePage();
+      }
+    });
+    
+    // به‌روزرسانی در تغییر اندازه صفحه نمایش
+    window.addEventListener('resize', updatePage);
+    
+    // به‌روزرسانی اولیه موقعیت
+    updatePage();
+  </script>
+</body>
+</html>
