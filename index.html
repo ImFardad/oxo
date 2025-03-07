@@ -3,111 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه گیم | ترکیبی از آرامش و هیجان</title>
+    <title>کافه گیم | سه فضای متفاوت</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* استایل پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.5s ease-in-out;
+        }
+
+        body {
+            font-family: 'Vazirmatn';
+            overflow: hidden;
+        }
+
+        /* استایل صفحات */
+        .page {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            overflow-y: auto;
+        }
+
+        .page.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* تم کافی شاپ */
+        body.cafe {
+            background: #3E2723;
+            color: #FFF3E0;
+        }
+
+        /* تم گیم نت */
+        body.gamnet {
+            background: #0A0A0A;
+            color: #00FF9D;
+        }
+
+        /* تم بازی فکری */
+        body.puzzle {
+            background: #F8F9FA;
+            color: #2B2B2B;
+        }
+
+        /* هدر */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        /* دکمه‌های ناوبری */
+        .nav-btns {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* محتوا */
+        .content {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 2rem;
+        }
+
+        .card {
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+
+        /* استایل‌های خاص هر تم */
+        body.cafe .card {
+            background: #5D4037;
+            border: 2px solid #A1887F;
+        }
+
+        body.gamnet .card {
+            background: #1A1A1A;
+            border: 2px solid #00FF9D;
+        }
+
+        body.puzzle .card {
+            background: white;
+            border: 2px solid #E0E0E0;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <!-- دکمه‌های ناوبری -->
-        <button class="nav-btn left" onclick="movePage('left')">&rarr;</button>
-        <button class="nav-btn right" onclick="movePage('right')">&larr;</button>
-
-        <!-- هدر -->
-        <header class="header" id="mainHeader">
-            <nav>
-                <img src="logo.png" alt="لوگو" class="logo">
-                <ul class="nav-links">
-                    <li><a href="#" data-page="cafe">کافی شاپ</a></li>
-                    <li><a href="#" data-page="gamnet">گیم نت</a></li>
-                    <li><a href="#" data-page="puzzle">بازی فکری</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- صفحات -->
-        <div class="pages-wrapper">
-            <!-- صفحه بازی فکری -->
-            <section id="puzzle" class="page">
-                <div class="hero-section">
-                    <h1>باشگاه فکری متا</h1>
-                    <p>تقویت مهارت‌های شناختی با بازی‌های گروهی پیشرفته</p>
-                </div>
-
-                <div class="content-section">
-                    <div class="card">
-                        <h2>مسابقات شطرنج حرفه‌ای</h2>
-                        <ul>
-                            <li>⏰ زمانبندی: پنجشنبه‌ها ۱۶-۲۰</li>
-                            <li>🏆 جوایز نقدی تا ۱۰ میلیون تومان</li>
-                            <li>👥 محدودیت سنی: +۱۶ سال</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h2>پازل‌های سه بعدی</h2>
-                        <p>چالش‌های گروهی با موضوعات:</p>
-                        <ul>
-                            <li>معماری تاریخی</li>
-                            <li>کهکشان‌های فضایی</li>
-                            <li>مکانیک کوانتومی</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- صفحه کافی شاپ -->
-            <section id="cafe" class="page active">
-                <div class="hero-section">
-                    <h1>کافه تخصصی دانه</h1>
-                    <p>لذت نوشیدنی‌های ویژه در محیطی دنج و آرام</p>
-                </div>
-
-                <div class="content-section">
-                    <div class="card">
-                        <h2>منوی ویژه قهوه</h2>
-                        <div class="menu-item">
-                            <h3>لاته هنری 🎨</h3>
-                            <p>ترکیب قهوه اتیوپیایی با شیر ارگانیک</p>
-                            <span class="price">۴۵,۰۰۰ تومان</span>
-                        </div>
-                        
-                        <div class="menu-item">
-                            <h3>موکا سرد ❄️</h3>
-                            <p>اسپرسو + شکلات بلژیکی + یخ صنعتی</p>
-                            <span class="price">۵۵,۰۰۰ تومان</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- صفحه گیم نت -->
-            <section id="gamnet" class="page">
-                <div class="hero-section">
-                    <h1>گیم‌نت حرفه‌ای</h1>
-                    <p>تجهیزات سطح اول با پینگ زیر ۲۰ms</p>
-                </div>
-
-                <div class="content-section">
-                    <div class="card">
-                        <h2>ایستگاه‌های بازی</h2>
-                        <div class="specs">
-                            <div class="pc-spec">
-                                <h3>RTX 4090 Station ⚡</h3>
-                                <ul>
-                                    <li>پردازنده: Intel i9-13900K</li>
-                                    <li>کارت گرافیک: RTX 4090 24GB</li>
-                                    <li>مانیتور: 240Hz QHD</li>
-                                </ul>
-                                <span class="rate">ساعتی ۷۵,۰۰۰ تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+<body class="cafe">
+    <!-- دکمه‌های ناوبری -->
+    <div class="nav-btns">
+        <button class="nav-btn" onclick="changePage('prev')">←</button>
+        <button class="nav-btn" onclick="changePage('next')">→</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- هدر -->
+    <header>
+        <h1>کافه گیم</h1>
+        <nav>
+            <button onclick="changePage('cafe')">کافی شاپ</button>
+            <button onclick="changePage('gamnet')">گیم نت</button>
+            <button onclick="changePage('puzzle')">بازی فکری</button>
+        </nav>
+    </header>
+
+    <!-- صفحات -->
+    <section id="cafe" class="page active">
+        <div class="content">
+            <div class="card">
+                <h2>منوی ویژه کافه</h2>
+                <ul>
+                    <li>آمریکانو سرد - 35,000 تومان</li>
+                    <li>موکا کارامل - 45,000 تومان</li>
+                    <li>لاته هنری - 50,000 تومان</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>ساعات کاری</h2>
+                <p>هر روز از ۸ صبح تا ۱۲ شب</p>
+                <p>جمعه‌ها ۱۰ صبح تا ۱۱ شب</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gamnet" class="page">
+        <div class="content">
+            <div class="card">
+                <h2>ایستگاه‌های بازی</h2>
+                <ul>
+                    <li>RTX 4090 + i9-13900K</li>
+                    <li>صفحه نمایش 240Hz</li>
+                    <li>دسته‌های حرفه‌ای Xbox</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>تعرفه‌ها</h2>
+                <p>ساعتی: 60,000 تومان</p>
+                <p>سه ساعته: 150,000 تومان</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="puzzle" class="page">
+        <div class="content">
+            <div class="card">
+                <h2>بازی‌های گروهی</h2>
+                <ul>
+                    <li>شطرنج تیمی</li>
+                    <li>پازل سه بعدی</li>
+                    <li>مسابقات فکری</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>زمان‌بندی</h2>
+                <p>پنجشنبه‌ها ۱۶-۲۰</p>
+                <p>جمعه‌ها ۱۰-۱۴</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const pages = ['cafe', 'gamnet', 'puzzle'];
+        let currentPage = 0;
+
+        function changePage(direction) {
+            // مدیریت جهت
+            if(direction === 'next') {
+                currentPage = currentPage < 2 ? currentPage + 1 : 0;
+            } else if(direction === 'prev') {
+                currentPage = currentPage > 0 ? currentPage - 1 : 2;
+            } else {
+                currentPage = pages.indexOf(direction);
+            }
+
+            // به روزرسانی تم و صفحات
+            document.body.className = pages[currentPage];
+            document.querySelectorAll('.page').forEach(page => 
+                page.classList.remove('active'));
+            document.getElementById(pages[currentPage]).classList.add('active');
+        }
+    </script>
 </body>
 </html>
