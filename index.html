@@ -8,31 +8,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- هدر کوچک -->
-    <header class="mini-header">
+    <!-- هدر -->
+    <header class="main-header">
+        <button class="events-btn">رویدادها</button>
         <img src="logo.png" alt="لوگو" class="logo">
-        <h1>کافه گیم حرفه‌ای</h1>
+        <h1 class="site-title">کافه گیم</h1>
     </header>
 
     <!-- انتخاب دسته -->
     <div class="category-selector">
-        <div class="category-card" onclick="showSection('puzzle')">
-            <img src="puzzle.jpg" alt="بازی فکری">
-            <h2>بازی فکری</h2>
-        </div>
         <div class="category-card" onclick="showSection('cafe')">
             <img src="cafe.jpg" alt="کافی شاپ">
-            <h2>کافی شاپ</h2>
         </div>
         <div class="category-card" onclick="showSection('gamnet')">
             <img src="gamnet.jpg" alt="گیم نت">
-            <h2>گیم نت</h2>
+        </div>
+        <div class="category-card" onclick="showSection('puzzle')">
+            <img src="puzzle.jpg" alt="بازی فکری">
         </div>
     </div>
 
     <!-- بخش‌های اصلی -->
     <main>
-        <!-- بخش کافی شاپ -->
+        <!-- کافی شاپ -->
         <section id="cafe" class="section active">
             <div class="intro">
                 <h1>کافه تخصصی</h1>
@@ -49,6 +47,7 @@
             </div>
 
             <div class="products">
+                <!-- 5 محصول نمونه -->
                 <div class="product" data-cat="cold">
                     <img src="coffee1.jpg" alt="آیس لته">
                     <div class="details">
@@ -57,11 +56,11 @@
                         <p class="price">۴۵,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <!-- محصولات بیشتر -->
+                <!-- محصولات بیشتر... -->
             </div>
         </section>
 
-        <!-- بخش گیم نت -->
+        <!-- گیم نت -->
         <section id="gamnet" class="section">
             <div class="intro">
                 <h1>گیم نت پیشرفته</h1>
@@ -78,6 +77,7 @@
             </div>
 
             <div class="products">
+                <!-- 5 محصول نمونه -->
                 <div class="product" data-cat="pc">
                     <img src="pc1.jpg" alt="ایستگاه بازی">
                     <div class="details">
@@ -86,11 +86,11 @@
                         <p class="price">ساعتی ۷۵,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <!-- محصولات بیشتر -->
+                <!-- محصولات بیشتر... -->
             </div>
         </section>
 
-        <!-- بخش بازی فکری -->
+        <!-- بازی فکری -->
         <section id="puzzle" class="section">
             <div class="intro">
                 <h1>باشگاه فکری</h1>
@@ -107,6 +107,7 @@
             </div>
 
             <div class="products">
+                <!-- 5 محصول نمونه -->
                 <div class="product" data-cat="duo">
                     <img src="chess.jpg" alt="شطرنج">
                     <div class="details">
@@ -115,7 +116,7 @@
                         <p class="price">ورودی ۲۵,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <!-- محصولات بیشتر -->
+                <!-- محصولات بیشتر... -->
             </div>
         </section>
     </main>

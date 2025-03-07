@@ -1,31 +1,37 @@
 :root {
-  --cafe-bg: #6D4C41;
-  --gamnet-bg: #0A0A0A;
-  --puzzle-bg: #4A148C;
+  /* رنگ‌ها */
+  --cafe-bg: linear-gradient(135deg, #6D4C41, #4E342E);
+  --gamnet-bg: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+  --puzzle-bg: linear-gradient(135deg, #3E2723, #5D4037);
   --neon-blue: #00f3ff;
   --neon-green: #00ff9d;
+  --header-bg: rgba(0,0,0,0.8);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  font-family: 'Vazirmatn', sans-serif;
 }
 
 body {
-  font-family: 'Vazirmatn', sans-serif;
   background: var(--cafe-bg);
   color: white;
 }
 
-.mini-header {
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 1rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
 .logo {
@@ -36,7 +42,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem;
+  padding: 6rem 1rem 2rem;
 }
 
 .category-card {
@@ -45,7 +51,11 @@ body {
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
 }
 
 .category-card img {
@@ -54,19 +64,10 @@ body {
   object-fit: cover;
 }
 
-.category-card h2 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 1rem;
-  background: rgba(0,0,0,0.7);
-  text-align: center;
-}
-
 .section {
   display: none;
   opacity: 0;
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn 0.6s forwards;
 }
 
 @keyframes fadeIn {
@@ -79,7 +80,7 @@ body {
 
 .intro {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 2rem;
 }
 
 .search-bar {
@@ -89,7 +90,9 @@ body {
   padding: 0.8rem;
   border-radius: 25px;
   border: none;
-  display: block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  color: white;
 }
 
 .tabs {
@@ -101,11 +104,11 @@ body {
 }
 
 .tab {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
-  background: #555;
+  background: rgba(255,255,255,0.1);
   color: white;
 }
 
@@ -129,6 +132,7 @@ body {
   padding: 1rem;
   border-radius: 15px;
   background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
 }
 
 .product img {
@@ -143,27 +147,34 @@ body {
   font-weight: bold;
 }
 
-/* تم گیم نت */
-body.gamnet-theme {
-  background: var(--gamnet-bg);
-}
+/* تم‌ها */
+body.cafe-theme { background: var(--cafe-bg); }
+body.gamnet-theme { background: var(--gamnet-bg); }
+body.puzzle-theme { background: var(--puzzle-bg); }
 
 body.gamnet-theme .tab.active {
   background: var(--neon-blue);
+  box-shadow: 0 0 15px var(--neon-blue);
 }
 
-body.gamnet-theme .price {
-  color: var(--neon-blue);
+body.gamnet-theme .product:hover {
+  box-shadow: 0 0 20px var(--neon-blue);
 }
 
 @media (max-width: 768px) {
-  .category-selector {
-      flex-direction: column;
-      align-items: center;
+  .category-card {
+      width: 150px;
+      height: 150px;
   }
   
-  .category-card {
-      width: 80%;
+  .product {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  .product img {
+      width: 100%;
       height: 150px;
   }
 }

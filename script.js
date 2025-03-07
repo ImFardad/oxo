@@ -1,4 +1,7 @@
 function showSection(sectionId) {
+    // تغییر تم
+    document.body.className = `${sectionId}-theme`;
+    
     // مخفی کردن تمام بخش‌ها
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
@@ -6,9 +9,6 @@ function showSection(sectionId) {
     
     // نمایش بخش مورد نظر
     document.getElementById(sectionId).classList.add('active');
-    
-    // تغییر تم
-    document.body.className = `${sectionId}-theme`;
 }
 
 // مدیریت تب‌ها
@@ -17,17 +17,11 @@ document.querySelectorAll('.tab').forEach(tab => {
         const category = this.dataset.cat;
         const parentSection = this.closest('.section');
         
-        // حذف کلاس active از همه تب‌ها
         parentSection.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         this.classList.add('active');
         
-        // فیلتر محصولات
         parentSection.querySelectorAll('.product').forEach(product => {
-            if (category === 'all') {
-                product.style.display = 'flex';
-            } else {
-                product.style.display = product.dataset.cat === category ? 'flex' : 'none';
-            }
+            product.style.display = (category === 'all' || product.dataset.cat === category) ? 'flex' : 'none';
         });
     });
 });
