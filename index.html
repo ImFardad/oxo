@@ -9,11 +9,10 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- کانتینر صفحات (ترتیب: بازی‌های فکری، کافی شاپ، گیم نت) -->
-  <div id="pagesContainer" class="container">
-    
-    <!-- صفحه بازی‌های فکری (سمت چپ) -->
-    <div class="page puzzle">
+  <!-- کانتینر اصلی صفحات -->
+  <div id="container" class="container">
+    <!-- صفحه بازی‌های فکری (صفحه 0) -->
+    <div class="page puzzle" data-page="0">
       <header class="page-header">
         <h1>بازی‌های فکری</h1>
         <p>توضیحات اولیه درباره بازی‌های فکری.</p>
@@ -29,9 +28,8 @@
         </ul>
       </nav>
     </div>
-    
-    <!-- صفحه کافی شاپ (وسط) -->
-    <div class="page cafe">
+    <!-- صفحه کافی شاپ (صفحه 1 - صفحه اولیه) -->
+    <div class="page cafe" data-page="1">
       <header class="page-header">
         <h1>کافی شاپ</h1>
         <p>توضیحات اولیه درباره کافی شاپ.</p>
@@ -47,9 +45,8 @@
         </ul>
       </nav>
     </div>
-    
-    <!-- صفحه گیم نت (سمت راست) -->
-    <div class="page gamenet">
+    <!-- صفحه گیم نت (صفحه 2) -->
+    <div class="page gamenet" data-page="2">
       <header class="page-header">
         <h1>گیم نت</h1>
         <p>توضیحات اولیه درباره گیم نت و معرفی بازی‌ها.</p>
@@ -65,7 +62,6 @@
         </ul>
       </nav>
     </div>
-    
   </div>
 
   <!-- دکمه‌های ناوبری -->

@@ -1,76 +1,87 @@
-// مطمئن می‌شویم که اسکریپت پس از بارگذاری کامل صفحه اجرا شود
-window.addEventListener('DOMContentLoaded', () => {
-  // ترتیب صفحات: [بازی‌های فکری (index 0), کافی شاپ (index 1), گیم نت (index 2)]
-  let currentIndex = 1; // صفحه اولیه: کافی شاپ (وسط)
-  const container = document.getElementById('pagesContainer');
-  const totalPages = 3;
+document.addEventListener('DOMContentLoaded', () => {
+  // شماره صفحات: 0: بازی‌های فکری، 1: کافی شاپ (صفحه اولیه)، 2: گیم نت
+  let currentPage = 1;
+  const pages = document.querySelectorAll('.page');
+  
+  // نمایش صفحه اولیه
+  pages.forEach(page => {
+    if (parseInt(page.getAttribute('data-page')) === currentPage) {
+      page.classList.add('active');
+    } else {
+      page.classList.remove('active');
+    }
+  });
+  updateArrows();
 
-  // به‌روزرسانی موقعیت کانتینر و دکمه‌های ناوبری
-  function updatePage() {
-    const offset = -currentIndex * window.innerWidth;
-    container.style.transform = `translateX(${offset}px)`;
-    updateArrows();
-    updateActivePage();
-  }
-
-  // به‌روزرسانی کلاس active برای افکت fade-in
-  function updateActivePage() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((page, index) => {
-      if (index === currentIndex) {
-        page.classList.add('active');
-      } else {
-        page.classList.remove('active');
-      }
-    });
-  }
-
-  // به‌روزرسانی نمایش دکمه‌ها بر اساس صفحه فعلی
+  // بروزرسانی نمایش دکمه‌های ناوبری بر اساس صفحه فعلی
   function updateArrows() {
     const arrowLeft = document.getElementById('arrowLeft');
     const arrowRight = document.getElementById('arrowRight');
-
-    if (currentIndex === 0) { // اولین صفحه: بازی‌های فکری
+    if (currentPage === 0) {
       arrowLeft.classList.add('hidden');
       arrowRight.classList.remove('hidden');
-    } else if (currentIndex === totalPages - 1) { // آخرین صفحه: گیم نت
+    } else if (currentPage === pages.length - 1) {
       arrowRight.classList.add('hidden');
       arrowLeft.classList.remove('hidden');
-    } else { // صفحه وسط: کافی شاپ
+    } else {
       arrowLeft.classList.remove('hidden');
       arrowRight.classList.remove('hidden');
     }
   }
 
-  // رویداد کلیک دکمه سمت چپ
+  // تابع جابجایی صفحه با انیمیشن
+  function switchPage(newPage, direction) {
+    if (newPage < 0 || newPage >= pages.length) return;
+    
+    const currentEl = document.querySelector(`.page[data-page="${currentPage}"]`);
+    const newEl = document.querySelector(`.page[data-page="${newPage}"]`);
+    
+    // نمایش صفحه مقصد برای آماده سازی انیمیشن
+    newEl.classList.add('active');
+    // حذف کلاس‌های انیمیشنی احتمالی
+    currentEl.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+    newEl.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+    
+    if (direction === 'left') {
+      // جهت چپ: صفحه فعلی به راست و صفحه مقصد از چپ وارد می‌شود
+      currentEl.classList.add('slide-out-right');
+      newEl.classList.add('slide-in-left');
+    } else if (direction === 'right') {
+      // جهت راست: صفحه فعلی به چپ و صفحه مقصد از راست وارد می‌شود
+      currentEl.classList.add('slide-out-left');
+      newEl.classList.add('slide-in-right');
+    }
+    
+    // پس از پایان انیمیشن (0.5 ثانیه)، به‌روزرسانی وضعیت
+    setTimeout(() => {
+      currentEl.classList.remove('active', 'slide-out-right', 'slide-out-left');
+      newEl.classList.remove('slide-in-left', 'slide-in-right');
+      currentPage = newPage;
+      updateArrows();
+    }, 500);
+  }
+
+  // رویداد کلیک برای دکمه سمت چپ
   document.getElementById('arrowLeft').addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updatePage();
+    if (currentPage > 0) {
+      switchPage(currentPage - 1, 'left');
     }
   });
 
-  // رویداد کلیک دکمه سمت راست
+  // رویداد کلیک برای دکمه سمت راست
   document.getElementById('arrowRight').addEventListener('click', () => {
-    if (currentIndex < totalPages - 1) {
-      currentIndex++;
-      updatePage();
+    if (currentPage < pages.length - 1) {
+      switchPage(currentPage + 1, 'right');
     }
   });
 
-  // به‌روزرسانی موقعیت در تغییر اندازه صفحه
-  window.addEventListener('resize', updatePage);
-
-  // رویداد سوئیچ تب‌ها در منوهای پایین صفحه
+  // سوئیچ تب‌ها (در منوهای پایین هر صفحه)
   document.querySelectorAll('.page-tabs .tab').forEach(tab => {
     tab.addEventListener('click', function() {
       const parent = this.closest('ul');
       parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       this.classList.add('active');
-      // در صورت نیاز می‌توان محتوای بخش .page-content را بر اساس تب تغییر داد
+      // در صورت نیاز، می‌توانید محتوای صفحه را بر اساس تب تغییر دهید.
     });
   });
-
-  // تنظیم اولیه
-  updatePage();
 });
