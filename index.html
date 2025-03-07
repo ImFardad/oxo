@@ -4,14 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سایت مجموعه</title>
+  <!-- استفاده از فونت وزیر -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- کانتینر صفحات: ترتیب از چپ به راست -->
+  <!-- کانتینر صفحات (ترتیب از چپ به راست به صورت ثابت) -->
   <div id="pagesContainer" class="container">
-    <div class="page puzzle">بازی‌های فکری</div>
-    <div class="page cafe">کافی شاپ</div>
-    <div class="page gamenet">گیم نت</div>
+    
+    <!-- صفحه بازی‌های فکری (سمت چپ - صفحه 0) -->
+    <div class="page puzzle">
+      <header class="page-header">
+        <h1>بازی‌های فکری</h1>
+        <p>توضیحات اولیه در خصوص بازی‌های فکری.</p>
+      </header>
+      <section class="page-content">
+        <p>محتوای تب‌های مربوط به بازی‌های فکری...</p>
+      </section>
+      <nav class="page-tabs">
+        <ul>
+          <li class="tab active" data-tab="tab1">تب ۱</li>
+          <li class="tab" data-tab="tab2">تب ۲</li>
+          <li class="tab" data-tab="tab3">تب ۳</li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- صفحه کافی شاپ (وسط - صفحه 1) -->
+    <div class="page cafe">
+      <header class="page-header">
+        <h1>کافی شاپ</h1>
+        <p>توضیحات اولیه در خصوص کافی شاپ.</p>
+      </header>
+      <section class="page-content">
+        <p>محتوای تب‌های مربوط به کافی شاپ...</p>
+      </section>
+      <nav class="page-tabs">
+        <ul>
+          <li class="tab active" data-tab="tab1">تب ۱</li>
+          <li class="tab" data-tab="tab2">تب ۲</li>
+          <li class="tab" data-tab="tab3">تب ۳</li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- صفحه گیم نت (سمت راست - صفحه 2) -->
+    <div class="page gamenet">
+      <header class="page-header">
+        <h1>گیم نت</h1>
+        <p>توضیحات اولیه در خصوص گیم نت و معرفی بازی‌ها.</p>
+      </header>
+      <section class="page-content">
+        <p>محتوای تب‌های مربوط به گیم نت...</p>
+      </section>
+      <nav class="page-tabs">
+        <ul>
+          <li class="tab active" data-tab="tab1">تب ۱</li>
+          <li class="tab" data-tab="tab2">تب ۲</li>
+          <li class="tab" data-tab="tab3">تب ۳</li>
+        </ul>
+      </nav>
+    </div>
+    
   </div>
 
   <!-- دکمه‌های ناوبری -->
