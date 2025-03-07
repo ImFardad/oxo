@@ -3,59 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کافه گیم - ترکیبی از آرامش و هیجان</title>
+  <title>کافه گیم | ترکیبی از آرامش و هیجان</title>
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- دکمههای ناوبری -->
-  <div class="nav-arrows">
-    <button class="nav-arrow arrow-left" onclick="movePage('left')">→</button>
-    <button class="nav-arrow arrow-right" onclick="movePage('right')">←</button>
-  </div>
-
-  <header>
+  <!-- هدر -->
+  <header id="main-header">
     <div class="logo">
-      <img src="images/logo.svg" alt="لوگو">
+      <img src="logo.svg" alt="لوگو" width="120">
     </div>
     <nav>
-      <ul class="nav-main">
-        <li><a href="#" class="nav-link" data-page="0">کافی شاپ</a></li>
-        <li><a href="#" class="nav-link" data-page="1">گیم نت</a></li>
-        <li><a href="#" class="nav-link" data-page="2">بازی فکری</a></li>
+      <ul style="list-style: none; display: flex; gap: 2rem;">
+        <li><a href="#cafe" style="color: inherit; text-decoration: none;">کافی شاپ</a></li>
+        <li><a href="#gamnet" style="color: inherit; text-decoration: none;">گیم نت</a></li>
+        <li><a href="#puzzle" style="color: inherit; text-decoration: none;">بازی فکری</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- دکمه‌های ناوبری -->
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="movePage('left')">←</button>
+    <button class="nav-btn" onclick="movePage('right')">→</button>
+  </div>
+
   <!-- صفحات -->
-  <div class="pages-container" id="pagesContainer">
+  <div class="pages-wrapper" id="pagesWrapper">
     <!-- صفحه بازی فکری -->
-    <section id="puzzle" class="page">
-      <div class="intro-section">
-        <h1 class="neon-effect">باشگاه فکری</h1>
-        <p>فضایی برای تقویت مهارتهای ذهنی و ارتباطات اجتماعی</p>
+    <section id="puzzle-page" class="page">
+      <div class="hero-section">
+        <h1>باشگاه فکری</h1>
+        <p>فضایی برای تقویت مهارت‌های ذهنی و ارتباطات اجتماعی</p>
       </div>
-      
+
       <div class="tab-menu">
-        <ul>
-          <li class="active" data-tab="team-games">تیمی</li>
-          <li data-tab="brain-teasers">معماها</li>
-        </ul>
+        <div class="tab-buttons">
+          <button class="tab-btn active">بازی‌های تیمی</button>
+          <button class="tab-btn">معماهای چالش‌برانگیز</button>
+        </div>
       </div>
-      
-      <div class="tab-content">
-        <!-- محتوای تبها -->
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>شطرنج حرفه‌ای</h3>
+          <p>مسابقات هفتگی با جوایز ویژه</p>
+          <p>🕒 زمانبندی: پنجشنبه‌ها ۱۶-۲۰</p>
+        </div>
+        <div class="card">
+          <h3>پازل گروهی</h3>
+          <p>همکاری تیمی برای حل معماهای پیچیده</p>
+          <p>👥 ظرفیت: ۴-۶ نفر</p>
+        </div>
       </div>
     </section>
 
     <!-- صفحه کافی شاپ -->
-    <section id="cafe" class="page active">
-      <!-- محتوای کافی شاپ مانند قبل -->
+    <section id="cafe-page" class="page active">
+      <div class="hero-section">
+        <h1>کافه تخصصی</h1>
+        <p>لذت نوشیدنی‌های ویژه در محیطی آرام</p>
+      </div>
+
+      <div class="tab-menu">
+        <div class="tab-buttons">
+          <button class="tab-btn active">نوشیدنی‌های سرد</button>
+          <button class="tab-btn">نوشیدنی‌های گرم</button>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>آیس لته هنری</h3>
+          <p>ترکیب قهوه اتیوپی با یخ صنعتی</p>
+          <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
+        </div>
+        <div class="card">
+          <h3>موکا سرد</h3>
+          <p>طعم شکلاتی با پایه قهوه برزیلی</p>
+          <p>⭐ پرطرفدار</p>
+        </div>
+      </div>
     </section>
 
     <!-- صفحه گیم نت -->
-    <section id="gamnet" class="page">
-      <!-- محتوای گیم نت مانند قبل -->
+    <section id="gamnet-page" class="page">
+      <div class="hero-section">
+        <h1>گیم‌نت حرفه‌ای</h1>
+        <p>تجهیزات پیشرفته با سرعت اینترنت گیگابیتی</p>
+      </div>
+
+      <div class="tab-menu">
+        <div class="tab-buttons">
+          <button class="tab-btn active">کنسول‌ها</button>
+          <button class="tab-btn">رایانه‌ها</button>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Xbox Series X</h3>
+          <p>۴K @ 120FPS - دسته‌های بی‌سیم</p>
+          <p>🎮 ۱۰ ایستگاه فعال</p>
+        </div>
+        <div class="card">
+          <h3>RTX 4090 Station</h3>
+          <p>سیستم حرفه‌ای با مانیتور ۲۴۰Hz</p>
+          <p>🔥 ویژه بازی‌های رقابتی</p>
+        </div>
+      </div>
     </section>
   </div>
 
