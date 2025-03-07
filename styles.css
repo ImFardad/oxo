@@ -56,30 +56,33 @@ body {
   font-size: 1rem;
 }
 
-/* انتخاب دسته */
+/* استایل کانتینر اصلی */
 .category-selector {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 6rem 1rem 2rem;
+  gap: 20px;
+  padding: 40px 20px;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   flex-wrap: nowrap;
 }
 
+/* مخفی کردن اسکرولبار */
 .category-selector::-webkit-scrollbar {
   display: none;
 }
 
+/* استایل کارت‌ها */
 .category-card {
-  min-width: 200px;
-  height: 200px;
-  border-radius: 15px;
+  scroll-snap-align: start;
+  min-width: 300px;
+  height: 400px;
+  border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
   flex-shrink: 0;
-  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   transition: transform 0.3s;
 }
 
@@ -87,10 +90,12 @@ body {
   transform: scale(1.05);
 }
 
+/* تصاویر */
 .category-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* بخش‌های اصلی */
@@ -259,6 +264,11 @@ body.puzzle-theme .price {
   .events-btn {
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
+  }
+  
+  .category-card {
+    min-width: 250px;
+    height: 350px;
   }
 
   .category-selector {
