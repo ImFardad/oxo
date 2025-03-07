@@ -1,141 +1,151 @@
 /* تنظیمات پایه */
 body {
-    margin: 0;
-    font-family: 'Vazir', sans-serif;
-    background-color: #f5f5f5;
-    overflow: hidden;
-    direction: rtl;
+  margin: 0;
+  font-family: 'Vazir', sans-serif;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* کانتینر صفحات: استفاده از flex جهت چینش صفحات به صورت افقی */
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 300%;
+  height: 100vh;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* استایل مشترک صفحات */
+.page {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+  position: relative;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+/* افکت fade-in هنگام فعال شدن صفحه */
+.page.active {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  /* کانتینر صفحات: استفاده از flex جهت چینش صفحات به صورت افقی */
-  .container {
-    display: flex;
-    flex-direction: row; /* حفظ ترتیب در سورس */
-    width: 300%; /* ۳ صفحه */
-    height: 100vh;
-    transition: transform 0.5s ease-in-out;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* استایل مشترک صفحات */
-  .page {
-    width: 100vw;
-    height: 100vh;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-sizing: border-box;
-    color: #fff;
-    position: relative;
-  }
-  
-  /* افکت fade-in هنگام فعال شدن صفحه */
-  .page.active {
-    animation: fadeIn 0.5s ease;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* تم هر صفحه */
-  /* صفحه بازی‌های فکری (کلاسیک) */
-  .page.puzzle {
-    background-color: #c0a080;
-  }
-  
-  /* صفحه کافی شاپ (قهوه‌ای) */
-  .page.cafe {
-    background-color: #6f4e37;
-  }
-  
-  /* صفحه گیم نت (تیره با رنگ‌های نئونی) */
-  .page.gamenet {
-    background-color: #1a1a1a;
-    text-shadow: 0 0 10px #39ff14;
-  }
-  
-  /* استایل هدر */
-  .page-header {
-    text-align: center;
-  }
-  .page-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-  }
-  .page-header p {
-    margin: 10px 0 0;
-    font-size: 1.2em;
-  }
-  
-  /* استایل بخش محتوا */
-  .page-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* استایل منوی تب‌ها */
-  .page-tabs {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin-top: 20px;
-  }
-  .page-tabs ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  .page-tabs .tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .page-tabs .tab.active,
-  .page-tabs .tab:hover {
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
-  /* استایل دکمه‌های ناوبری */
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    z-index: 10;
-  }
-  .arrow.left {
-    left: 20px;
-  }
-  .arrow.right {
-    right: 20px;
-  }
-  
-  /* کلاس برای مخفی کردن المان */
-  .hidden {
-    display: none;
-  }
-  
+}
+
+/* تم هر صفحه */
+/* صفحه بازی‌های فکری (کلاسیک) */
+.page.puzzle {
+  background: linear-gradient(135deg, #8a7f58, #c9b88d);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* صفحه کافی شاپ (قهوه‌ای) */
+.page.cafe {
+  background: linear-gradient(135deg, #6f4e37, #d2a97e);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* صفحه گیم نت (تیره با رنگ‌های نئونی) */
+.page.gamenet {
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  color: #39ff14;
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* استایل هدر */
+.page-header {
+  text-align: center;
+  color: #fff;
+}
+.page-header h1 {
+  margin: 0;
+  font-size: 3em;
+}
+.page-header p {
+  margin: 10px 0 0;
+  font-size: 1.5em;
+  opacity: 0.7;
+}
+
+/* استایل بخش محتوا */
+.page-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+/* استایل منوی تب‌ها */
+.page-tabs {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 5px;
+}
+.page-tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.page-tabs .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.page-tabs .tab.active,
+.page-tabs .tab:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+/* استایل دکمه‌های ناوبری */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.arrow.left {
+  left: 20px;
+}
+.arrow.right {
+  right: 20px;
+}
+
+/* کلاس برای مخفی کردن المان */
+.hidden {
+  display: none;
+}
