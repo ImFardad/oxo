@@ -1,190 +1,136 @@
-/* تنظیمات پایه */
+/* تنظیمات پایه و متغیرها */
+:root {
+  --primary-bg: #1a1a1a;
+  --secondary-bg: #2d2d2d;
+  --third-bg: #3f3f3f;
+  --text-color: #ffffff;
+  --accent-blue: #5AB1BB;
+  --accent-green: #A5C882;
+}
+
 body {
   margin: 0;
-  font-family: 'Vazir', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--primary-bg);
   direction: rtl;
-  overflow: hidden;
+  color: var(--text-color);
 }
 
-/* کانتینر اصلی صفحات */
-.container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* صفحات به صورت لایه‌ای */
-.page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  overflow-y: auto;
-  transition: opacity 0.5s;
-}
-
-/* نمایش صفحه فعال */
-.page.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* تم صفحات */
-/* بازی‌های فکری (کلاسیک) */
-.page.puzzle {
-  background: linear-gradient(135deg, #8a7f58, #c9b88d);
-}
-
-/* کافی شاپ (قهوه‌ای) */
-.page.cafe {
-  background: linear-gradient(135deg, #6f4e37, #d2a97e);
-}
-
-/* گیم نت (تیره با رنگ‌های نئونی) */
-.page.gamenet {
-  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-  color: #39ff14;
-  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
-}
-
-/* استایل هدر */
-.page-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.page-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-}
-.page-header p {
-  margin: 10px 0 20px;
-  font-size: 1.2em;
-  opacity: 0.8;
-}
-
-/* استایل بخش محتوا */
-.page-content {
-  text-align: center;
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-.page-content h2 {
-  margin-bottom: 15px;
-  font-size: 1.8em;
-}
-.page-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 15px;
-  max-width: 300px;
-  text-align: left;
-}
-.page-content ul li {
-  background: rgba(255, 255, 255, 0.2);
-  margin: 5px 0;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-/* استایل منوی تب‌ها */
-.page-tabs {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 5px;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 400px;
-}
-.page-tabs ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-.page-tabs .tab {
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.3s;
-  border-radius: 4px;
-}
-.page-tabs .tab.active,
-.page-tabs .tab:hover {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-/* دکمه‌های ناوبری */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2em;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+/* هدر */
+header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--secondary-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+header .logo img {
+  height: 50px;
+}
+.nav-main {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-main li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+.nav-main li a:hover {
+  background: var(--accent-blue);
+  border-radius: 4px;
+}
+
+/* بخش‌های اصلی */
+.page {
+  padding: 40px 20px;
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+.intro-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.intro-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.intro-section p {
+  font-size: 1.2rem;
+}
+
+/* منوی تب‌ها */
+.tab-menu {
+  text-align: center;
+  margin-top: 20px;
+}
+.tab-menu ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 10px;
+  padding: 0;
+}
+.tab-menu ul li {
+  padding: 10px 20px;
+  background: var(--secondary-bg);
+  border-radius: 5px;
   cursor: pointer;
-  z-index: 100;
+  transition: background 0.3s;
 }
-.arrow.left {
-  left: 20px;
-}
-.arrow.right {
-  right: 20px;
-}
-.arrow.hidden {
-  display: none;
+.tab-menu ul li.active {
+  background: var(--accent-blue);
 }
 
-/* انیمیشن‌های انتقال */
-@keyframes slideInFromLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+/* محتوای تب */
+.tab-content {
+  margin-top: 20px;
 }
-@keyframes slideOutToRight {
-  from { transform: translateX(0); opacity: 1; }
-  to { transform: translateX(100%); opacity: 0; }
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
-@keyframes slideInFromRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+.box {
+  background: var(--third-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
-@keyframes slideOutToLeft {
-  from { transform: translateX(0); opacity: 1; }
-  to { transform: translateX(-100%); opacity: 0; }
+.box h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
 }
 
-.slide-in-left {
-  animation: slideInFromLeft 0.5s forwards;
+/* فوتر */
+footer {
+  background: var(--secondary-bg);
+  padding: 20px;
+  color: var(--text-color);
+  text-align: center;
 }
-.slide-out-right {
-  animation: slideOutToRight 0.5s forwards;
+footer .contact {
+  margin-bottom: 20px;
 }
-.slide-in-right {
-  animation: slideInFromRight 0.5s forwards;
+footer .contact .logo img {
+  height: 40px;
 }
-.slide-out-left {
-  animation: slideOutToLeft 0.5s forwards;
+.footer-section a {
+  text-decoration: none;
+  color: var(--text-color);
+  margin: 0 10px;
+}
+.footer-section a:hover {
+  text-decoration: underline;
 }
 
 /* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
-  .page-header h1 { font-size: 2em; }
-  .page-header p { font-size: 1em; }
-  .page-content { font-size: 1em; padding: 10px; }
-  .arrow { width: 40px; height: 40px; font-size: 1.5em; }
-  .page-tabs .tab { padding: 8px 10px; font-size: 0.9em; }
+  .intro-section h1 { font-size: 2rem; }
+  .intro-section p { font-size: 1rem; }
+  .tab-menu ul li { padding: 8px 16px; font-size: 0.9rem; }
 }

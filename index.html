@@ -3,93 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سایت مجموعه</title>
+  <title>نمونه پروژه – کافی شاپ | گیم نت | بازی فکری</title>
   <!-- استفاده از فونت وزیر -->
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <!-- استایل اصلی -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- کانتینر اصلی صفحات -->
-  <div id="container" class="container">
-    <!-- صفحه بازی‌های فکری (صفحه 0) -->
-    <div class="page puzzle" data-page="0">
-      <header class="page-header">
-        <h1>بازی‌های فکری</h1>
-        <p>دنیایی از سرگرمی‌های ذهنی و چالش‌های فکری</p>
-      </header>
-      <section class="page-content">
-        <h2>بازی‌های محبوب</h2>
-        <ul>
-          <li>شطرنج</li>
-          <li>تخته نرد</li>
-          <li>پازل‌های کلاسیک</li>
-          <li>سودوکو</li>
-        </ul>
-        <p>با انتخاب هر کدام از تب‌ها، اطلاعات بیشتری در خصوص هر دسته‌بندی در اختیار شما قرار می‌گیرد.</p>
-      </section>
-      <nav class="page-tabs">
-        <ul>
-          <li class="tab active" data-tab="tab1">معرفی</li>
-          <li class="tab" data-tab="tab2">قوانین</li>
-          <li class="tab" data-tab="tab3">راهنما</li>
-        </ul>
-      </nav>
+  <!-- هدر بالا -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.svg" alt="Logo">
     </div>
-    
-    <!-- صفحه کافی شاپ (صفحه 1 - صفحه اولیه) -->
-    <div class="page cafe" data-page="1">
-      <header class="page-header">
-        <h1>کافی شاپ</h1>
-        <p>محل استراحت، گفتگو و لذت بردن از طعم‌های متفاوت</p>
-      </header>
-      <section class="page-content">
-        <h2>منوی نوشیدنی</h2>
-        <ul>
-          <li>کافی لاته</li>
-          <li>کاپوچینو</li>
-          <li>اسپرسو</li>
-          <li>چای سبز</li>
-        </ul>
-        <p>محیطی گرم و دلنشین با طراحی مدرن و مینیمال؛ جایی برای دیدار دوستان و همفکری.</p>
-      </section>
-      <nav class="page-tabs">
-        <ul>
-          <li class="tab active" data-tab="tab1">معرفی</li>
-          <li class="tab" data-tab="tab2">منو</li>
-          <li class="tab" data-tab="tab3">ایونت‌ها</li>
-        </ul>
-      </nav>
-    </div>
-    
-    <!-- صفحه گیم نت (صفحه 2) -->
-    <div class="page gamenet" data-page="2">
-      <header class="page-header">
-        <h1>گیم نت</h1>
-        <p>مرکز بازی‌های آنلاین و رقابتی با تجهیزات پیشرفته</p>
-      </header>
-      <section class="page-content">
-        <h2>بازی‌های داغ</h2>
-        <ul>
-          <li>Fortnite</li>
-          <li>League of Legends</li>
-          <li>Counter-Strike</li>
-          <li>Call of Duty</li>
-        </ul>
-        <p>با حضور آخرین نسخه‌های بازی‌های روز دنیا، تجربه‌ای متفاوت از گیمینگ را در اختیار شما قرار می‌دهیم.</p>
-      </section>
-      <nav class="page-tabs">
-        <ul>
-          <li class="tab active" data-tab="tab1">معرفی</li>
-          <li class="tab" data-tab="tab2">تورنمنت</li>
-          <li class="tab" data-tab="tab3">نظرات کاربران</li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+    <nav>
+      <ul class="nav-main">
+        <li><a href="#cafe">کافی شاپ</a></li>
+        <li><a href="#gamnet">گیم نت</a></li>
+        <li><a href="#puzzle">بازی فکری</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- دکمه‌های ناوبری -->
-  <div class="arrow left" id="arrowLeft">&#8592;</div>
-  <div class="arrow right" id="arrowRight">&#8594;</div>
+  <!-- بخش کافی شاپ -->
+  <section id="cafe" class="page">
+    <div class="intro-section">
+      <h1>کافی شاپ</h1>
+      <p>محل استراحت، گفتگو و لذت بردن از طعم‌های متنوع نوشیدنی‌ها.</p>
+    </div>
+    <!-- منوی تب برای کافی شاپ -->
+    <div class="tab-menu">
+      <ul>
+        <li class="active" data-tab="cold-drinks">نوشیدنی سرد</li>
+        <li data-tab="hot-drinks">نوشیدنی گرم</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <!-- محتوای تب نوشیدنی سرد -->
+      <div class="box-grid" id="cold-drinks">
+        <div class="box">
+          <h3>آیس کافی</h3>
+          <p>ترکیبی از قهوه و یخ برای شروعی انرژی‌زا.</p>
+        </div>
+        <div class="box">
+          <h3>آیس چای</h3>
+          <p>چای خنک با طعم لیمو و نعناع.</p>
+        </div>
+      </div>
+      <!-- محتوای تب نوشیدنی گرم (پنهان شده) -->
+      <div class="box-grid" id="hot-drinks" style="display: none;">
+        <div class="box">
+          <h3>کافی لاته</h3>
+          <p>کلاسیکی دلنشین با کف شیر.</p>
+        </div>
+        <div class="box">
+          <h3>کاپوچینو</h3>
+          <p>ترکیبی متعادل از قهوه و کف شیر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش گیم نت -->
+  <section id="gamnet" class="page">
+    <div class="intro-section">
+      <h1>گیم نت</h1>
+      <p>مرکزی برای تجربه بازی‌های آنلاین با تجهیزات پیشرفته و فضای هیجان‌انگیز.</p>
+    </div>
+    <!-- منوی تب برای گیم نت -->
+    <div class="tab-menu">
+      <ul>
+        <li class="active" data-tab="xbox">Xbox</li>
+        <li data-tab="pc">PC</li>
+        <li data-tab="vr">واقعیت مجازی</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <!-- محتوای تب Xbox -->
+      <div class="box-grid" id="xbox">
+        <div class="box">
+          <h3>Xbox Series X</h3>
+          <p>قدرت و سرعت در یک کنسول مدرن.</p>
+        </div>
+        <div class="box">
+          <h3>Xbox Game Pass</h3>
+          <p>دسترسی به صدها بازی در یک اشتراک.</p>
+        </div>
+      </div>
+      <!-- محتوای تب PC (پنهان شده) -->
+      <div class="box-grid" id="pc" style="display: none;">
+        <div class="box">
+          <h3>بازی‌های اکشن</h3>
+          <p>تجربه بازی‌های هیجان‌انگیز بر روی رایانه.</p>
+        </div>
+        <div class="box">
+          <h3>بازی‌های استراتژیک</h3>
+          <p>چالش‌های فکری و استراتژیک برای علاقه‌مندان.</p>
+        </div>
+      </div>
+      <!-- محتوای تب VR (پنهان شده) -->
+      <div class="box-grid" id="vr" style="display: none;">
+        <div class="box">
+          <h3>تجربه VR</h3>
+          <p>ورود به دنیای مجازی با تجهیزات نوین.</p>
+        </div>
+        <div class="box">
+          <h3>شبیه‌سازی VR</h3>
+          <p>بازی‌های تعاملی در محیط‌های مجازی.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش بازی فکری -->
+  <section id="puzzle" class="page">
+    <div class="intro-section">
+      <h1>بازی فکری</h1>
+      <p>بازی‌هایی برای تقویت مهارت‌های استراتژیک و اجتماعی؛ چالش‌هایی که ذهن را به کار می‌اندازند.</p>
+    </div>
+    <!-- منوی تب برای بازی فکری -->
+    <div class="tab-menu">
+      <ul>
+        <li class="active" data-tab="two-player">دو نفره</li>
+        <li data-tab="multi-player">چند نفره</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <!-- محتوای تب دو نفره -->
+      <div class="box-grid" id="two-player">
+        <div class="box">
+          <h3>شطرنج</h3>
+          <p>رقابت استراتژیک بین دو بازیکن.</p>
+        </div>
+        <div class="box">
+          <h3>تخته نرد</h3>
+          <p>بازی کلاسیک و پرهیجان دو نفره.</p>
+        </div>
+      </div>
+      <!-- محتوای تب چند نفره (پنهان شده) -->
+      <div class="box-grid" id="multi-player" style="display: none;">
+        <div class="box">
+          <h3>پازل گروهی</h3>
+          <p>حل معماهای چالش‌برانگیز به صورت تیمی.</p>
+        </div>
+        <div class="box">
+          <h3>بازی چندنفره</h3>
+          <p>چالش‌های فکری برای چند بازیکن.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <div class="contact">
+      <div class="logo">
+        <img src="images/logo.svg" alt="Logo">
+      </div>
+      <p><img src="images/icon-phone.svg" alt="Phone"><span>+98-9123456789</span></p>
+      <p><img src="images/icon-email.svg" alt="Email"><span>info@example.com</span></p>
+    </div>
+    <div class="footer-section">
+      <div class="links">
+        <a href="#cafe">کافی شاپ</a>
+        <a href="#gamnet">گیم نت</a>
+        <a href="#puzzle">بازی فکری</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; تمامی حقوق محفوظ است.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
