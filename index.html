@@ -3,294 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه گیم حرفه‌ای | ترکیبی از طعم و هیجان</title>
+    <title>کافه گیم حرفه‌ای</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-        /* تنظیمات پایه */
         :root {
-            --cafe-primary: #6D4C41;
-            --cafe-secondary: #8D6E63;
-            --gamnet-primary: #1A237E;
-            --gamnet-secondary: #303F9F;
-            --puzzle-primary: #4A148C;
-            --puzzle-secondary: #7B1FA2;
-            --text-light: #FFF8E1;
-            --text-dark: #212121;
+            --cafe-bg: #FFF3E0;
+            --gamnet-bg: #0A0A0A;
+            --puzzle-bg: #F8F9FA;
+            --neon-blue: #00f3ff;
+            --neon-green: #00ff9d;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
         }
 
         body {
-            font-family: 'Vazirmatn', sans-serif;
-            overflow-x: hidden;
+            font-family: 'Vazirmatn';
         }
 
-        /* هدر پیشرفته */
-        .main-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
+        /* هدر کوچک */
+        .mini-header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .nav-container {
+        .mini-header img {
+            height: 40px;
+        }
+
+        /* بخش انتخاب دسته‌ها */
+        .category-selector {
             display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 2rem;
+            padding: 3rem 1rem;
         }
 
-        .nav-tabs {
+        .category-card {
+            width: 300px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* بخش اینترو */
+        .intro-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* تب‌ها */
+        .tabs-container {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
+            justify-content: center;
+            padding: 2rem;
+            flex-wrap: wrap;
         }
 
-        .nav-tab {
+        .tab-btn {
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
+            border: none;
             cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
+            background: #eee;
         }
 
-        .search-box {
-            padding: 0.8rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.1);
-            width: 250px;
-        }
-
-        /* صفحات */
-        .page {
-            min-height: 100vh;
-            padding: 120px 2rem 2rem;
-            display: none;
-            opacity: 0;
-            animation: fadeIn 0.4s forwards;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* تم‌های رنگی */
-        body.cafe-theme {
-            background: linear-gradient(135deg, var(--cafe-primary), var(--cafe-secondary));
-            color: var(--text-light);
-        }
-
-        body.gamnet-theme {
-            background: linear-gradient(135deg, var(--gamnet-primary), var(--gamnet-secondary));
-            color: var(--text-light);
-        }
-
-        body.puzzle-theme {
-            background: linear-gradient(135deg, var(--puzzle-primary), var(--puzzle-secondary));
-            color: var(--text-light);
-        }
-
-        /* محتوای اصلی */
-        .hero-section {
-            text-align: center;
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 3rem;
-        }
-
-        .product-grid {
+        /* محصولات */
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .product-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
             border-radius: 15px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .product-image {
-            height: 200px;
-            background: #fff;
+            width: 100px;
+            height: 100px;
             border-radius: 10px;
-            margin-bottom: 1rem;
+            object-fit: cover;
         }
 
         .product-price {
-            color: #FFD600;
+            color: #c62828;
             font-weight: bold;
-            font-size: 1.2rem;
-            margin: 1rem 0;
         }
 
-        .ingredients-list {
-            list-style: none;
-            margin: 1rem 0;
+        /* استایل مخصوص گیم نت */
+        .gamnet-theme {
+            background: var(--gamnet-bg);
+            color: white;
         }
 
-        .ingredients-list li::before {
-            content: "• ";
-            color: #00E676;
+        .gamnet-theme .tab-btn {
+            background: #1a1a1a;
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
         }
 
-        /* ریسپانسیو */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .search-box {
-                width: 100%;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+        .gamnet-theme .product-card {
+            background: #1a1a1a;
+            border: 1px solid var(--neon-blue);
+        }
+
+        /* جستجو */
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 1rem;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            display: block;
         }
     </style>
 </head>
-<body class="cafe-theme">
-    <!-- هدر پیشرفته -->
-    <header class="main-header">
-        <nav class="nav-container">
-            <div class="nav-tabs">
-                <button class="nav-tab active" data-page="cafe">کافی شاپ</button>
-                <button class="nav-tab" data-page="gamnet">گیم نت</button>
-                <button class="nav-tab" data-page="puzzle">بازی فکری</button>
-            </div>
-            <input type="text" class="search-box" placeholder="جستجوی محصولات...">
-        </nav>
+<body>
+    <!-- هدر کوچک -->
+    <header class="mini-header">
+        <img src="logo.png" alt="لوگو">
+        <h2>کافه گیم حرفه‌ای</h2>
     </header>
 
-    <!-- محتوای صفحات -->
-    <main>
-        <!-- صفحه کافی شاپ -->
-        <section id="cafe" class="page active">
-            <div class="hero-section">
-                <h1>کافه تخصصی دانه طلایی</h1>
-                <p>تجربه طعم‌های منحصر به فرد از بهترین دانه‌های قهوه جهان</p>
-            </div>
+    <!-- انتخاب دسته -->
+    <div class="category-selector">
+        <div class="category-card" onclick="scrollToSection('cafe')">
+            <img src="cafe-bg.jpg" alt="کافی شاپ">
+        </div>
+        <div class="category-card gamnet-theme" onclick="scrollToSection('gamnet')">
+            <img src="gamnet-bg.jpg" alt="گیم نت">
+        </div>
+        <div class="category-card" onclick="scrollToSection('puzzle')">
+            <img src="puzzle-bg.jpg" alt="بازی فکری">
+        </div>
+    </div>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image"></div>
+    <!-- بخش کافی شاپ -->
+    <section id="cafe" class="section">
+        <div class="intro-section">
+            <h1>کافه تخصصی</h1>
+            <p>قهوه‌های ویژه از بهترین دانه‌های جهان</p>
+        </div>
+
+        <input type="text" class="search-bar" placeholder="جستجوی محصولات...">
+
+        <div class="tabs-container">
+            <button class="tab-btn active">همه</button>
+            <button class="tab-btn">نوشیدنی سرد</button>
+            <button class="tab-btn">نوشیدنی گرم</button>
+            <button class="tab-btn">کیک و شیرینی</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="coffee1.jpg" alt="لاته" class="product-image">
+                <div>
                     <h3>لاته هنری</h3>
-                    <ul class="ingredients-list">
-                        <li>قهوه اتیوپیایی درجه یک</li>
-                        <li>شیر ارگانیک محلی</li>
-                        <li>سیروپ کارامل خانگی</li>
-                    </ul>
-                    <div class="product-price">۴۵,۰۰۰ تومان</div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>موکا سرد ویژه</h3>
-                    <ul class="ingredients-list">
-                        <li>اسپرسو دوبل برزیلی</li>
-                        <li>پودر کاکائو مرغوب</li>
-                        <li>یخ صنعتی فیلتر شده</li>
-                    </ul>
-                    <div class="product-price">۵۵,۰۰۰ تومان</div>
+                    <p>قهوه اتیوپیایی + شیر ارگانیک</p>
+                    <p class="product-price">45,000 تومان</p>
                 </div>
             </div>
-        </section>
+            <!-- محصولات بیشتر... -->
+        </div>
+    </section>
 
-        <!-- صفحه گیم نت -->
-        <section id="gamnet" class="page">
-            <div class="hero-section">
-                <h1>گیم نت پیشرفته</h1>
-                <p>تجهیزات حرفه‌ای با بهترین سخت‌افزارهای روز دنیا</p>
-            </div>
+    <!-- بخش گیم نت -->
+    <section id="gamnet" class="section gamnet-theme">
+        <div class="intro-section">
+            <h1 style="color: var(--neon-green)">گیم نت پیشرفته</h1>
+            <p>تجهیزات حرفه‌ای با بهترین سخت افزارها</p>
+        </div>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>ایستگاه حرفه‌ای</h3>
-                    <ul class="specs-list">
-                        <li>پردازنده: Intel i9-13900K</li>
-                        <li>کارت گرافیک: RTX 4090 24GB</li>
-                        <li>مانیتور: 240Hz QHD</li>
-                    </ul>
-                    <div class="product-price">ساعتی ۷۵,۰۰۰ تومان</div>
+        <input type="text" class="search-bar" placeholder="جستجوی محصولات..." style="background: #1a1a1a; color: white">
+
+        <div class="tabs-container">
+            <button class="tab-btn active">همه</button>
+            <button class="tab-btn">PC</button>
+            <button class="tab-btn">پلی استیشن</button>
+            <button class="tab-btn">VR</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="pc1.jpg" alt="ایستگاه بازی" class="product-image">
+                <div>
+                    <h3>ایستگاه RTX 4090</h3>
+                    <p>پردازنده i9 + مانیتور 240Hz</p>
+                    <p class="product-price" style="color: var(--neon-blue)">ساعتی 75,000 تومان</p>
                 </div>
             </div>
-        </section>
+            <!-- محصولات بیشتر... -->
+        </div>
+    </section>
 
-        <!-- صفحه بازی فکری -->
-        <section id="puzzle" class="page">
-            <div class="hero-section">
-                <h1>باشگاه فکری متا</h1>
-                <p>چالش‌های گروهی برای تقویت مهارت‌های شناختی</p>
-            </div>
+    <!-- بخش بازی فکری -->
+    <section id="puzzle" class="section">
+        <div class="intro-section">
+            <h1>باشگاه فکری</h1>
+            <p>چالش‌های گروهی برای تقویت مهارت‌ها</p>
+        </div>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image"></div>
+        <input type="text" class="search-bar" placeholder="جستجوی محصولات...">
+
+        <div class="tabs-container">
+            <button class="tab-btn active">همه</button>
+            <button class="tab-btn">دو نفره</button>
+            <button class="tab-btn">گروهی</button>
+            <button class="tab-btn">پرونده‌ای</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="chess.jpg" alt="شطرنج" class="product-image">
+                <div>
                     <h3>مسابقات شطرنج</h3>
-                    <ul class="details-list">
-                        <li>زمانبندی: پنجشنبه‌ها ۱۶-۲۰</li>
-                        <li>جوایز نقدی تا ۱۰ میلیون تومان</li>
-                        <li>مربیان بین‌المللی</li>
-                    </ul>
-                    <div class="product-price">ورودی ۲۵,۰۰۰ تومان</div>
+                    <p>با مربیان بین‌المللی</p>
+                    <p class="product-price">ورودی 25,000 تومان</p>
                 </div>
             </div>
-        </section>
-    </main>
+            <!-- محصولات بیشتر... -->
+        </div>
+    </section>
 
     <script>
-        // سیستم مدیریت صفحات
-        const pages = {
-            cafe: document.getElementById('cafe'),
-            gamnet: document.getElementById('gamnet'),
-            puzzle: document.getElementById('puzzle')
-        };
+        // اسکرول به بخش‌ها
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
 
-        // مدیریت کلیک تب‌ها
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // حذف کلاس active از همه
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                
-                // اضافه کردن کلاس active
+        // مدیریت تب‌ها
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                const pageId = this.dataset.page;
-                pages[pageId].classList.add('active');
-                
-                // تغییر تم سایت
-                document.body.className = `${pageId}-theme`;
             });
         });
 
-        // سیستم جستجو
-        document.querySelector('.search-box').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+        // مدیریت جستجو
+        document.querySelectorAll('.search-bar').forEach(searchBar => {
+            searchBar.addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase();
+                this.closest('.section').querySelectorAll('.product-card').forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    card.style.display = title.includes(term) ? 'flex' : 'none';
+                });
             });
         });
     </script>
