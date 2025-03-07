@@ -1,10 +1,11 @@
 :root {
   /* رنگ‌ها */
-  --cafe-bg: linear-gradient(135deg, #6D4C41, #4E342E);
-  --gamnet-bg: linear-gradient(135deg, #0A0A0A, #1A1A1A);
-  --puzzle-bg: linear-gradient(135deg, #3E2723, #5D4037);
+  --cafe-primary: #6D4C41;
+  --gamnet-primary: #0A0A0A;
+  --puzzle-primary: #3E2723;
   --neon-blue: #00f3ff;
   --neon-green: #00ff9d;
+  --neon-purple: #9C27B0;
   --header-bg: rgba(0,0,0,0.8);
 }
 
@@ -17,7 +18,6 @@
 }
 
 body {
-  background: var(--cafe-bg);
   color: white;
 }
 
@@ -36,6 +36,15 @@ body {
 
 .logo {
   height: 50px;
+}
+
+.events-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
 }
 
 .category-selector {
@@ -93,6 +102,7 @@ body {
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(5px);
   color: white;
+  display: block;
 }
 
 .tabs {
@@ -110,11 +120,6 @@ body {
   cursor: pointer;
   background: rgba(255,255,255,0.1);
   color: white;
-}
-
-.tab.active {
-  background: var(--neon-green);
-  color: black;
 }
 
 .products {
@@ -143,22 +148,41 @@ body {
 }
 
 .price {
-  color: var(--neon-green);
   font-weight: bold;
 }
 
 /* تم‌ها */
-body.cafe-theme { background: var(--cafe-bg); }
-body.gamnet-theme { background: var(--gamnet-bg); }
-body.puzzle-theme { background: var(--puzzle-bg); }
-
-body.gamnet-theme .tab.active {
-  background: var(--neon-blue);
-  box-shadow: 0 0 15px var(--neon-blue);
+body.cafe-theme {
+  background: var(--cafe-primary);
+}
+body.cafe-theme .tab.active {
+  background: #A1887F;
+  box-shadow: 0 0 15px rgba(161,136,127,0.5);
+}
+body.cafe-theme .price {
+  color: #FFD54F;
 }
 
-body.gamnet-theme .product:hover {
+body.gamnet-theme {
+  background: var(--gamnet-primary);
+}
+body.gamnet-theme .tab.active {
+  background: var(--neon-blue);
   box-shadow: 0 0 20px var(--neon-blue);
+}
+body.gamnet-theme .price {
+  color: var(--neon-blue);
+}
+
+body.puzzle-theme {
+  background: var(--puzzle-primary);
+}
+body.puzzle-theme .tab.active {
+  background: var(--neon-purple);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+body.puzzle-theme .price {
+  color: var(--neon-purple);
 }
 
 @media (max-width: 768px) {
