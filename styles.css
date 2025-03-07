@@ -7,11 +7,10 @@ body {
   direction: rtl;
 }
 
-/* کانتینر صفحات: استفاده از flex جهت چینش صفحات به صورت افقی */
+/* کانتینر صفحات: چینش صفحات به صورت افقی */
 .container {
   display: flex;
-  flex-direction: row;
-  width: 300%;
+  width: 300%; /* ۳ صفحه */
   height: 100vh;
   transition: transform 0.5s ease-in-out;
 }
@@ -28,7 +27,6 @@ body {
   box-sizing: border-box;
   color: #fff;
   position: relative;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
 }
 
 /* افکت fade-in هنگام فعال شدن صفحه */
@@ -47,20 +45,20 @@ body {
   }
 }
 
-/* تم هر صفحه */
-/* صفحه بازی‌های فکری (کلاسیک) */
+/* تم صفحات */
+/* بازی‌های فکری (کلاسیک) */
 .page.puzzle {
   background: linear-gradient(135deg, #8a7f58, #c9b88d);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* صفحه کافی شاپ (قهوه‌ای) */
+/* کافی شاپ (قهوه‌ای) */
 .page.cafe {
   background: linear-gradient(135deg, #6f4e37, #d2a97e);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* صفحه گیم نت (تیره با رنگ‌های نئونی) */
+/* گیم نت (تیره با رنگ‌های نئونی) */
 .page.gamenet {
   background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
   color: #39ff14;
@@ -71,7 +69,6 @@ body {
 /* استایل هدر */
 .page-header {
   text-align: center;
-  color: #fff;
 }
 .page-header h1 {
   margin: 0;
@@ -125,7 +122,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 2em;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   color: #fff;
   width: 50px;
   height: 50px;
