@@ -1,23 +1,9 @@
-/* تنظیمات پایه */
-:root {
-  --cafe-primary: #4B371C;
-  --cafe-secondary: #6F4E37;
-  --cafe-accent: #A67B5B;
-  
-  --gamnet-primary: #0A0A0A;
-  --gamnet-secondary: #1F1F1F;
-  --gamnet-accent: #00FF9D;
-  
-  --puzzle-primary: #F8F9FA;
-  --puzzle-secondary: #E9ECEF;
-  --puzzle-accent: #6C757D;
-}
-
+/* Reset و تنظیمات پایه */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -38,128 +24,112 @@ body {
 .page {
   width: 100vw;
   height: 100vh;
-  padding: 80px 20px 20px;
+  padding: 100px 20px 40px;
   overflow-y: auto;
 }
 
-/* صفحه کافی شاپ */
+/* تم‌های رنگی */
 #cafe-page {
-  background: var(--cafe-primary);
+  background: #3E2723;
   color: #FFF3E0;
 }
 
-/* صفحه گیم نت */
 #gamnet-page {
-  background: var(--gamnet-primary);
-  color: var(--gamnet-accent);
+  background: #0A0A0A;
+  color: #00FF9D;
 }
 
-/* صفحه بازی فکری */
 #puzzle-page {
-  background: var(--puzzle-primary);
-  color: var(--puzzle-accent);
+  background: #F8F9FA;
+  color: #2B2B2B;
 }
 
-/* هدر */
+/* هدر پویا */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
+#cafe-page header { background: #5D4037; }
+#gamnet-page header { background: #1A1A1A; border-bottom: 2px solid #00FF9D; }
+#puzzle-page header { background: #E9ECEF; }
 
 /* دکمه‌های ناوبری */
-.nav-buttons {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  z-index: 500;
-}
-
 .nav-btn {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.15) !important;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
-  backdrop-filter: blur(5px);
-  font-size: 1.5rem;
+  backdrop-filter: blur(8px);
+  font-size: 1.8rem;
   display: grid;
   place-items: center;
+  color: inherit;
+  margin: 0 20px;
 }
 
 /* محتوای صفحات */
 .hero-section {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.tab-menu {
-  margin: 2rem 0;
-}
-
-.tab-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.tab-btn {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-/* استایل‌های خاص هر صفحه */
-/* کافی شاپ */
-#cafe-page .tab-btn {
-  background: var(--cafe-secondary);
-  color: #FFF3E0;
-}
-
-/* گیم نت */
-#gamnet-page .tab-btn {
-  background: var(--gamnet-secondary);
-  color: var(--gamnet-accent);
-  border: 1px solid var(--gamnet-accent);
-}
-
-/* بازی فکری */
-#puzzle-page .tab-btn {
-  background: var(--puzzle-secondary);
-  color: var(--puzzle-accent);
-}
-
-/* کارت‌ها */
+/* کارت‌های نمونه */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  line-height: 1.7;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#cafe-page .card { background: var(--cafe-secondary); }
-#gamnet-page .card { background: var(--gamnet-secondary); }
-#puzzle-page .card { background: white; }
+#cafe-page .card {
+  background: #5D4037;
+  border: 2px solid #A67B5B;
+}
+
+#gamnet-page .card {
+  background: #1F1F1F;
+  border: 2px solid #00FF9D;
+}
+
+#puzzle-page .card {
+  background: white;
+  border: 2px solid #DEE2E6;
+}
+
+.price-tag {
+  background: #00C853;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 1rem;
+}
