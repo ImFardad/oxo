@@ -1,154 +1,126 @@
 :root {
-  /* رنگ‌های تم کافی شاپ */
-  --cafe-primary: #4E342E;
-  --cafe-secondary: #795548;
+  /* رنگ‌های تم */
+  --cafe-bg: #3E2723;
+  --cafe-text: #FFF3E0;
+  --cafe-accent: #A1887F;
   
-  /* رنگ‌های تم گیم نت */
-  --gamnet-primary: #1A237E;
-  --gamnet-secondary: #303F9F;
+  --gamnet-bg: #0A0A0A;
+  --gamnet-text: #00FF9D;
+  --gamnet-accent: #2196F3;
   
-  /* رنگ‌های تم بازی فکری */
-  --puzzle-primary: #F5F5F5;
-  --puzzle-secondary: #E0E0E0;
+  --puzzle-bg: #F8F9FA;
+  --puzzle-text: #2B2B2B;
+  --puzzle-accent: #9C27B0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Vazirmatn', sans-serif;
+  transition: all 0.3s ease;
 }
 
 body {
-  direction: rtl;
+  font-family: 'Vazirmatn', sans-serif;
+  overflow-x: hidden;
 }
 
-.header {
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--cafe-primary), var(--cafe-secondary));
-  color: white;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4rem;
-}
-
-.logo {
-  width: 120px;
-}
-
-.btn {
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1.1rem;
-}
-
-.btn-primary {
-  background: #FFD54F;
-  color: #212121;
-}
-
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-}
-
-.hero-content {
-  flex: 1;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-image {
-  flex: 1;
-  max-width: 600px;
-}
-
-.main {
+.container {
   position: relative;
-  overflow: hidden;
+  width: 300vw;
+  height: 100vh;
+  display: flex;
+  transform: translateX(-100vw);
 }
 
 .page {
-  min-height: 100vh;
-  padding: 4rem 2rem;
+  width: 100vw;
+  height: 100vh;
+  padding: 100px 50px 50px;
+  overflow-y: auto;
+}
+
+/* استایل هدر */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem;
+  z-index: 1000;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+}
+
+.nav-links {
   display: flex;
-  align-items: center;
+  gap: 2rem;
+  list-style: none;
 }
 
-.cafe-page {
-  background: var(--cafe-primary);
-  color: white;
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.gamnet-page {
-  background: var(--gamnet-primary);
-  color: white;
+/* استایل صفحات */
+#cafe {
+  background: var(--cafe-bg);
+  color: var(--cafe-text);
 }
 
-.puzzle-page {
-  background: var(--puzzle-primary);
-  color: #212121;
+#gamnet {
+  background: var(--gamnet-bg);
+  color: var(--gamnet-text);
 }
 
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 4rem;
+#puzzle {
+  background: var(--puzzle-bg);
+  color: var(--puzzle-text);
 }
 
-.reversed {
-  flex-direction: row-reverse;
+/* کارت‌ها */
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.text-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+#cafe .card { border: 2px solid var(--cafe-accent); }
+#gamnet .card { border: 2px solid var(--gamnet-accent); }
+#puzzle .card { border: 2px solid var(--puzzle-accent); }
+
+.menu-item {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-.illustration {
-  flex: 1;
-  max-width: 500px;
+.price {
+  color: #00C853;
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
 }
 
-.footer {
-  background: #212121;
-  color: white;
-  padding: 3rem 2rem;
+/* دکمه‌های ناوبری */
+.nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  backdrop-filter: blur(5px);
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .hero {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .content {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .reversed {
-      flex-direction: column;
-  }
-}
+.nav-btn.left { left: 2rem; }
+.nav-btn.right { right: 2rem; }

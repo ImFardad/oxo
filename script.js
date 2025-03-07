@@ -1,38 +1,35 @@
-// مدیریت اسکرول افقی
-let isScrolling = false;
-let currentPage = 0;
-const pages = document.querySelectorAll('.page');
+let currentPage = 1; // 0: puzzle, 1: cafe, 2: gamnet
+const pages = document.querySelector('.container');
+const header = document.getElementById('mainHeader');
 
-window.addEventListener('wheel', (e) => {
-    if (!isScrolling) {
-        isScrolling = true;
-        
-        if (e.deltaY > 0 && currentPage < pages.length - 1) {
-            currentPage++;
-        } else if (e.deltaY < 0 && currentPage > 0) {
-            currentPage--;
-        }
-        
-        window.scrollTo({
-            top: pages[currentPage].offsetTop,
-            behavior: 'smooth'
-        });
-        
-        setTimeout(() => {
-            isScrolling = false;
-        }, 1000);
-    }
-});
-
-// مدیریت تغییر تم
 function updateTheme() {
-    const themes = ['cafe', 'gamnet', 'puzzle'];
-    document.body.className = `${themes[currentPage]}-theme`;
+    const themes = {
+        puzzle: { bg: '#F8F9FA', color: '#2B2B2B' },
+        cafe: { bg: '#3E2723', color: '#FFF3E0' },
+        gamnet: { bg: '#0A0A0A', color: '#00FF9D' }
+    };
+    
+    const currentTheme = Object.values(themes)[currentPage];
+    header.style.background = currentTheme.bg;
+    header.style.color = currentTheme.color;
 }
 
-// مدیریت کلیک دکمه‌ها
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        alert('این ویژگی به زودی اضافه خواهد شد!');
+function movePage(direction) {
+    if(direction === 'right' && currentPage < 2) currentPage++;
+    if(direction === 'left' && currentPage > 0) currentPage--;
+    
+    pages.style.transform = `translateX(${-currentPage * 100}vw)`;
+    updateTheme();
+}
+
+// مدیریت کلیک منو
+document.querySelectorAll('.nav-links a').forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = index;
+        movePage('');
     });
 });
+
+// تنظیم اولیه
+updateTheme();

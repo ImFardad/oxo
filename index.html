@@ -8,70 +8,105 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- هدر -->
-    <header class="header">
-        <nav class="nav">
-            <img src="logo.svg" alt="لوگو" class="logo">
-            <button class="btn">تماس با ما</button>
-        </nav>
-        
-        <div class="hero">
-            <div class="hero-content">
-                <h1>کافه گیم حرفه‌ای</h1>
-                <p>تجربه‌ای منحصر به فرد از ترکیب قهوه‌های ویژه و بازی‌های مدرن</p>
-                <button class="btn btn-primary">شروع کنید</button>
-            </div>
-            <img src="hero-img.svg" alt="تصویر هدر" class="hero-image">
+    <div class="container">
+        <!-- دکمه‌های ناوبری -->
+        <button class="nav-btn left" onclick="movePage('left')">&rarr;</button>
+        <button class="nav-btn right" onclick="movePage('right')">&larr;</button>
+
+        <!-- هدر -->
+        <header class="header" id="mainHeader">
+            <nav>
+                <img src="logo.png" alt="لوگو" class="logo">
+                <ul class="nav-links">
+                    <li><a href="#" data-page="cafe">کافی شاپ</a></li>
+                    <li><a href="#" data-page="gamnet">گیم نت</a></li>
+                    <li><a href="#" data-page="puzzle">بازی فکری</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- صفحات -->
+        <div class="pages-wrapper">
+            <!-- صفحه بازی فکری -->
+            <section id="puzzle" class="page">
+                <div class="hero-section">
+                    <h1>باشگاه فکری متا</h1>
+                    <p>تقویت مهارت‌های شناختی با بازی‌های گروهی پیشرفته</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="card">
+                        <h2>مسابقات شطرنج حرفه‌ای</h2>
+                        <ul>
+                            <li>⏰ زمانبندی: پنجشنبه‌ها ۱۶-۲۰</li>
+                            <li>🏆 جوایز نقدی تا ۱۰ میلیون تومان</li>
+                            <li>👥 محدودیت سنی: +۱۶ سال</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h2>پازل‌های سه بعدی</h2>
+                        <p>چالش‌های گروهی با موضوعات:</p>
+                        <ul>
+                            <li>معماری تاریخی</li>
+                            <li>کهکشان‌های فضایی</li>
+                            <li>مکانیک کوانتومی</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه کافی شاپ -->
+            <section id="cafe" class="page active">
+                <div class="hero-section">
+                    <h1>کافه تخصصی دانه</h1>
+                    <p>لذت نوشیدنی‌های ویژه در محیطی دنج و آرام</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="card">
+                        <h2>منوی ویژه قهوه</h2>
+                        <div class="menu-item">
+                            <h3>لاته هنری 🎨</h3>
+                            <p>ترکیب قهوه اتیوپیایی با شیر ارگانیک</p>
+                            <span class="price">۴۵,۰۰۰ تومان</span>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <h3>موکا سرد ❄️</h3>
+                            <p>اسپرسو + شکلات بلژیکی + یخ صنعتی</p>
+                            <span class="price">۵۵,۰۰۰ تومان</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه گیم نت -->
+            <section id="gamnet" class="page">
+                <div class="hero-section">
+                    <h1>گیم‌نت حرفه‌ای</h1>
+                    <p>تجهیزات سطح اول با پینگ زیر ۲۰ms</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="card">
+                        <h2>ایستگاه‌های بازی</h2>
+                        <div class="specs">
+                            <div class="pc-spec">
+                                <h3>RTX 4090 Station ⚡</h3>
+                                <ul>
+                                    <li>پردازنده: Intel i9-13900K</li>
+                                    <li>کارت گرافیک: RTX 4090 24GB</li>
+                                    <li>مانیتور: 240Hz QHD</li>
+                                </ul>
+                                <span class="rate">ساعتی ۷۵,۰۰۰ تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </header>
-
-    <!-- بخش صفحات -->
-    <main class="main">
-        <!-- صفحه کافی شاپ -->
-        <section class="page cafe-page">
-            <div class="content">
-                <div class="text-content">
-                    <h2>کافه تخصصی</h2>
-                    <p>قهوه‌های ویژه از بهترین دانه‌های جهان</p>
-                </div>
-                <img src="cafe-illustration.svg" alt="کافی شاپ" class="illustration">
-            </div>
-        </section>
-
-        <!-- صفحه گیم نت -->
-        <section class="page gamnet-page">
-            <div class="content reversed">
-                <div class="text-content">
-                    <h2>گیم نت حرفه‌ای</h2>
-                    <p>تجهیزات سطح اول با سرعت اینترنت گیگابیتی</p>
-                </div>
-                <img src="gamnet-illustration.svg" alt="گیم نت" class="illustration">
-            </div>
-        </section>
-
-        <!-- صفحه بازی فکری -->
-        <section class="page puzzle-page">
-            <div class="content">
-                <div class="text-content">
-                    <h2>باشگاه فکری</h2>
-                    <p>تقویت مهارت‌های ذهنی با بازی‌های گروهی</p>
-                </div>
-                <img src="puzzle-illustration.svg" alt="بازی فکری" class="illustration">
-            </div>
-        </section>
-    </main>
-
-    <!-- فوتر -->
-    <footer class="footer">
-        <div class="footer-content">
-            <img src="logo-white.svg" alt="لوگو" class="footer-logo">
-            <div class="contact-info">
-                <p>آدرس: تهران، خیابان نمونه</p>
-                <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
-                <p>ایمیل: info@cafegame.ir</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
