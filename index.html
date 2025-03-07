@@ -3,214 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه گیم | سه فضای متفاوت</title>
+    <title>کافه گیم حرفه‌ای | ترکیبی از طعم و هیجان</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-        /* استایل پایه */
+        /* تنظیمات پایه */
+        :root {
+            --cafe-primary: #6D4C41;
+            --cafe-secondary: #8D6E63;
+            --gamnet-primary: #1A237E;
+            --gamnet-secondary: #303F9F;
+            --puzzle-primary: #4A148C;
+            --puzzle-secondary: #7B1FA2;
+            --text-light: #FFF8E1;
+            --text-dark: #212121;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            font-family: 'Vazirmatn';
-            overflow: hidden;
+            font-family: 'Vazirmatn', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* استایل صفحات */
-        .page {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            overflow-y: auto;
-        }
-
-        .page.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* تم کافی شاپ */
-        body.cafe {
-            background: #3E2723;
-            color: #FFF3E0;
-        }
-
-        /* تم گیم نت */
-        body.gamnet {
-            background: #0A0A0A;
-            color: #00FF9D;
-        }
-
-        /* تم بازی فکری */
-        body.puzzle {
-            background: #F8F9FA;
-            color: #2B2B2B;
-        }
-
-        /* هدر */
-        header {
+        /* هدر پیشرفته */
+        .main-header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
-            backdrop-filter: blur(10px);
-            z-index: 100;
+            align-items: center;
         }
 
-        /* دکمه‌های ناوبری */
-        .nav-btns {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
+        .nav-container {
             display: flex;
-            justify-content: space-between;
-            padding: 0 1rem;
+            align-items: center;
+            gap: 2rem;
         }
 
-        .nav-btn {
-            background: rgba(255,255,255,0.2);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .nav-tabs {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-tab {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s;
         }
 
-        /* محتوا */
-        .content {
+        .search-box {
+            padding: 0.8rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            width: 250px;
+        }
+
+        /* صفحات */
+        .page {
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.4s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* تم‌های رنگی */
+        body.cafe-theme {
+            background: linear-gradient(135deg, var(--cafe-primary), var(--cafe-secondary));
+            color: var(--text-light);
+        }
+
+        body.gamnet-theme {
+            background: linear-gradient(135deg, var(--gamnet-primary), var(--gamnet-secondary));
+            color: var(--text-light);
+        }
+
+        body.puzzle-theme {
+            background: linear-gradient(135deg, var(--puzzle-primary), var(--puzzle-secondary));
+            color: var(--text-light);
+        }
+
+        /* محتوای اصلی */
+        .hero-section {
+            text-align: center;
             max-width: 1200px;
-            margin: 100px auto 0;
-            padding: 2rem;
+            margin: 2rem auto;
+            padding: 3rem;
         }
 
-        .card {
-            padding: 2rem;
-            margin: 2rem 0;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
             border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* استایل‌های خاص هر تم */
-        body.cafe .card {
-            background: #5D4037;
-            border: 2px solid #A1887F;
+        .product-image {
+            height: 200px;
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 1rem;
         }
 
-        body.gamnet .card {
-            background: #1A1A1A;
-            border: 2px solid #00FF9D;
+        .product-price {
+            color: #FFD600;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 1rem 0;
         }
 
-        body.puzzle .card {
-            background: white;
-            border: 2px solid #E0E0E0;
+        .ingredients-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .ingredients-list li::before {
+            content: "• ";
+            color: #00E676;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="cafe">
-    <!-- دکمه‌های ناوبری -->
-    <div class="nav-btns">
-        <button class="nav-btn" onclick="changePage('prev')">←</button>
-        <button class="nav-btn" onclick="changePage('next')">→</button>
-    </div>
-
-    <!-- هدر -->
-    <header>
-        <h1>کافه گیم</h1>
-        <nav>
-            <button onclick="changePage('cafe')">کافی شاپ</button>
-            <button onclick="changePage('gamnet')">گیم نت</button>
-            <button onclick="changePage('puzzle')">بازی فکری</button>
+<body class="cafe-theme">
+    <!-- هدر پیشرفته -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-page="cafe">کافی شاپ</button>
+                <button class="nav-tab" data-page="gamnet">گیم نت</button>
+                <button class="nav-tab" data-page="puzzle">بازی فکری</button>
+            </div>
+            <input type="text" class="search-box" placeholder="جستجوی محصولات...">
         </nav>
     </header>
 
-    <!-- صفحات -->
-    <section id="cafe" class="page active">
-        <div class="content">
-            <div class="card">
-                <h2>منوی ویژه کافه</h2>
-                <ul>
-                    <li>آمریکانو سرد - 35,000 تومان</li>
-                    <li>موکا کارامل - 45,000 تومان</li>
-                    <li>لاته هنری - 50,000 تومان</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2>ساعات کاری</h2>
-                <p>هر روز از ۸ صبح تا ۱۲ شب</p>
-                <p>جمعه‌ها ۱۰ صبح تا ۱۱ شب</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="gamnet" class="page">
-        <div class="content">
-            <div class="card">
-                <h2>ایستگاه‌های بازی</h2>
-                <ul>
-                    <li>RTX 4090 + i9-13900K</li>
-                    <li>صفحه نمایش 240Hz</li>
-                    <li>دسته‌های حرفه‌ای Xbox</li>
-                </ul>
+    <!-- محتوای صفحات -->
+    <main>
+        <!-- صفحه کافی شاپ -->
+        <section id="cafe" class="page active">
+            <div class="hero-section">
+                <h1>کافه تخصصی دانه طلایی</h1>
+                <p>تجربه طعم‌های منحصر به فرد از بهترین دانه‌های قهوه جهان</p>
             </div>
 
-            <div class="card">
-                <h2>تعرفه‌ها</h2>
-                <p>ساعتی: 60,000 تومان</p>
-                <p>سه ساعته: 150,000 تومان</p>
-            </div>
-        </div>
-    </section>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h3>لاته هنری</h3>
+                    <ul class="ingredients-list">
+                        <li>قهوه اتیوپیایی درجه یک</li>
+                        <li>شیر ارگانیک محلی</li>
+                        <li>سیروپ کارامل خانگی</li>
+                    </ul>
+                    <div class="product-price">۴۵,۰۰۰ تومان</div>
+                </div>
 
-    <section id="puzzle" class="page">
-        <div class="content">
-            <div class="card">
-                <h2>بازی‌های گروهی</h2>
-                <ul>
-                    <li>شطرنج تیمی</li>
-                    <li>پازل سه بعدی</li>
-                    <li>مسابقات فکری</li>
-                </ul>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h3>موکا سرد ویژه</h3>
+                    <ul class="ingredients-list">
+                        <li>اسپرسو دوبل برزیلی</li>
+                        <li>پودر کاکائو مرغوب</li>
+                        <li>یخ صنعتی فیلتر شده</li>
+                    </ul>
+                    <div class="product-price">۵۵,۰۰۰ تومان</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- صفحه گیم نت -->
+        <section id="gamnet" class="page">
+            <div class="hero-section">
+                <h1>گیم نت پیشرفته</h1>
+                <p>تجهیزات حرفه‌ای با بهترین سخت‌افزارهای روز دنیا</p>
             </div>
 
-            <div class="card">
-                <h2>زمان‌بندی</h2>
-                <p>پنجشنبه‌ها ۱۶-۲۰</p>
-                <p>جمعه‌ها ۱۰-۱۴</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h3>ایستگاه حرفه‌ای</h3>
+                    <ul class="specs-list">
+                        <li>پردازنده: Intel i9-13900K</li>
+                        <li>کارت گرافیک: RTX 4090 24GB</li>
+                        <li>مانیتور: 240Hz QHD</li>
+                    </ul>
+                    <div class="product-price">ساعتی ۷۵,۰۰۰ تومان</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- صفحه بازی فکری -->
+        <section id="puzzle" class="page">
+            <div class="hero-section">
+                <h1>باشگاه فکری متا</h1>
+                <p>چالش‌های گروهی برای تقویت مهارت‌های شناختی</p>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h3>مسابقات شطرنج</h3>
+                    <ul class="details-list">
+                        <li>زمانبندی: پنجشنبه‌ها ۱۶-۲۰</li>
+                        <li>جوایز نقدی تا ۱۰ میلیون تومان</li>
+                        <li>مربیان بین‌المللی</li>
+                    </ul>
+                    <div class="product-price">ورودی ۲۵,۰۰۰ تومان</div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
-        const pages = ['cafe', 'gamnet', 'puzzle'];
-        let currentPage = 0;
+        // سیستم مدیریت صفحات
+        const pages = {
+            cafe: document.getElementById('cafe'),
+            gamnet: document.getElementById('gamnet'),
+            puzzle: document.getElementById('puzzle')
+        };
 
-        function changePage(direction) {
-            // مدیریت جهت
-            if(direction === 'next') {
-                currentPage = currentPage < 2 ? currentPage + 1 : 0;
-            } else if(direction === 'prev') {
-                currentPage = currentPage > 0 ? currentPage - 1 : 2;
-            } else {
-                currentPage = pages.indexOf(direction);
-            }
+        // مدیریت کلیک تب‌ها
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // حذف کلاس active از همه
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // اضافه کردن کلاس active
+                this.classList.add('active');
+                const pageId = this.dataset.page;
+                pages[pageId].classList.add('active');
+                
+                // تغییر تم سایت
+                document.body.className = `${pageId}-theme`;
+            });
+        });
 
-            // به روزرسانی تم و صفحات
-            document.body.className = pages[currentPage];
-            document.querySelectorAll('.page').forEach(page => 
-                page.classList.remove('active'));
-            document.getElementById(pages[currentPage]).classList.add('active');
-        }
+        // سیستم جستجو
+        document.querySelector('.search-box').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
     </script>
 </body>
 </html>
