@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // شماره صفحات: 0: بازی‌های فکری، 1: کافی شاپ (صفحه اولیه)، 2: گیم نت
-  let currentPage = 1;
+  // شماره صفحات: 0: بازی‌های فکری، 1: کافی شاپ، 2: گیم نت
+  let currentPage = 1; // صفحه اولیه: کافی شاپ
   const pages = document.querySelectorAll('.page');
   
   // نمایش صفحه اولیه
@@ -36,23 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentEl = document.querySelector(`.page[data-page="${currentPage}"]`);
     const newEl = document.querySelector(`.page[data-page="${newPage}"]`);
     
-    // نمایش صفحه مقصد برای آماده سازی انیمیشن
+    // آماده‌سازی انیمیشن
     newEl.classList.add('active');
-    // حذف کلاس‌های انیمیشنی احتمالی
     currentEl.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
     newEl.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
     
     if (direction === 'left') {
-      // جهت چپ: صفحه فعلی به راست و صفحه مقصد از چپ وارد می‌شود
       currentEl.classList.add('slide-out-right');
       newEl.classList.add('slide-in-left');
     } else if (direction === 'right') {
-      // جهت راست: صفحه فعلی به چپ و صفحه مقصد از راست وارد می‌شود
       currentEl.classList.add('slide-out-left');
       newEl.classList.add('slide-in-right');
     }
     
-    // پس از پایان انیمیشن (0.5 ثانیه)، به‌روزرسانی وضعیت
     setTimeout(() => {
       currentEl.classList.remove('active', 'slide-out-right', 'slide-out-left');
       newEl.classList.remove('slide-in-left', 'slide-in-right');
@@ -61,14 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  // رویداد کلیک برای دکمه سمت چپ
+  // رویداد کلیک دکمه سمت چپ
   document.getElementById('arrowLeft').addEventListener('click', () => {
     if (currentPage > 0) {
       switchPage(currentPage - 1, 'left');
     }
   });
 
-  // رویداد کلیک برای دکمه سمت راست
+  // رویداد کلیک دکمه سمت راست
   document.getElementById('arrowRight').addEventListener('click', () => {
     if (currentPage < pages.length - 1) {
       switchPage(currentPage + 1, 'right');
@@ -81,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const parent = this.closest('ul');
       parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       this.classList.add('active');
-      // در صورت نیاز، می‌توانید محتوای صفحه را بر اساس تب تغییر دهید.
+      // در صورت نیاز، می‌توانید محتوای بخش .page-content را تغییر دهید.
     });
   });
 });
