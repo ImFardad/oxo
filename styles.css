@@ -1,168 +1,154 @@
-/* Reset و تنظیمات پایه */
+:root {
+  /* رنگ‌های تم کافی شاپ */
+  --cafe-primary: #4E342E;
+  --cafe-secondary: #795548;
+  
+  /* رنگ‌های تم گیم نت */
+  --gamnet-primary: #1A237E;
+  --gamnet-secondary: #303F9F;
+  
+  /* رنگ‌های تم بازی فکری */
+  --puzzle-primary: #F5F5F5;
+  --puzzle-secondary: #E0E0E0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Vazirmatn', sans-serif;
 }
 
 body {
-  font-family: 'Vazirmatn', sans-serif;
-  overflow-x: hidden;
+  direction: rtl;
 }
 
-/* ساختار اصلی */
-.pages-container {
-  display: flex;
-  width: 300%;
-  height: 100vh;
-  transition: transform 0.5s ease-in-out;
+.header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--cafe-primary), var(--cafe-secondary));
+  color: white;
 }
 
-.page {
-  width: 100vw;
-  height: 100vh;
-  padding: 100px 20px 40px;
-  overflow-y: auto;
-}
-
-/* تم‌های رنگی */
-#cafe-page {
-  background: #3E2723;
-  color: #FFF3E0;
-}
-
-#gamnet-page {
-  background: #0A0A0A;
-  color: #00FF9D;
-}
-
-#puzzle-page {
-  background: #F8F9FA;
-  color: #2B2B2B;
-}
-
-/* هدر پویا */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 1.5rem;
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 4rem;
 }
 
-#cafe-page header { background: #5D4037; }
-#gamnet-page header { 
-  background: #1A1A1A;
-  border-bottom: 2px solid #00FF9D;
-}
-#puzzle-page header { 
-  background: #E9ECEF;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.logo {
+  width: 120px;
 }
 
-/* دکمه‌های ناوبری */
-.nav-arrows {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  z-index: 500;
-}
-
-.arrow-btn {
-  background: rgba(255,255,255,0.15);
+.btn {
+  padding: 0.8rem 2rem;
   border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  font-size: 1.8rem;
-  color: inherit;
-  display: grid;
-  place-items: center;
-}
-
-/* کارت‌ها */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.card {
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  line-height: 1.7;
-  min-height: 300px;
-}
-
-#cafe-page .card {
-  background: #5D4037;
-  border: 2px solid #A67B5B;
-}
-
-#gamnet-page .card {
-  background: #1F1F1F;
-  border: 2px solid #00FF9D;
-}
-
-#puzzle-page .card {
-  background: white;
-  border: 2px solid #DEE2E6;
-}
-
-.price-tag {
-  background: #00C853;
-  color: white;
-  padding: 0.5rem 1.5rem;
   border-radius: 25px;
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-weight: bold;
-}
-
-/* تب‌ها */
-.tab-btns {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.tab-btn {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 30px;
   cursor: pointer;
-  font-weight: 600;
   font-size: 1.1rem;
 }
 
-#cafe-page .tab-btn {
-  background: #6F4E37;
-  color: #FFF3E0;
+.btn-primary {
+  background: #FFD54F;
+  color: #212121;
 }
 
-#gamnet-page .tab-btn {
-  background: #1F1F1F;
-  color: #00FF9D;
-  border: 2px solid #00FF9D;
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
 }
 
-#puzzle-page .tab-btn {
-  background: #E9ECEF;
-  color: #495057;
+.hero-content {
+  flex: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 600px;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.cafe-page {
+  background: var(--cafe-primary);
+  color: white;
+}
+
+.gamnet-page {
+  background: var(--gamnet-primary);
+  color: white;
+}
+
+.puzzle-page {
+  background: var(--puzzle-primary);
+  color: #212121;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.illustration {
+  flex: 1;
+  max-width: 500px;
+}
+
+.footer {
+  background: #212121;
+  color: white;
+  padding: 3rem 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .content {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .reversed {
+      flex-direction: column;
+  }
 }

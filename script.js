@@ -1,42 +1,38 @@
-let currentPage = 1; // 0: puzzle, 1: cafe, 2: gamnet
-const pagesContainer = document.querySelector('.pages-container');
-const header = document.querySelector('header');
+// مدیریت اسکرول افقی
+let isScrolling = false;
+let currentPage = 0;
+const pages = document.querySelectorAll('.page');
 
+window.addEventListener('wheel', (e) => {
+    if (!isScrolling) {
+        isScrolling = true;
+        
+        if (e.deltaY > 0 && currentPage < pages.length - 1) {
+            currentPage++;
+        } else if (e.deltaY < 0 && currentPage > 0) {
+            currentPage--;
+        }
+        
+        window.scrollTo({
+            top: pages[currentPage].offsetTop,
+            behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
+    }
+});
+
+// مدیریت تغییر تم
 function updateTheme() {
-    const themes = ['puzzle', 'cafe', 'gamnet'];
+    const themes = ['cafe', 'gamnet', 'puzzle'];
     document.body.className = `${themes[currentPage]}-theme`;
-    
-    // آپدیت هدر
-    header.style.backgroundColor = getComputedStyle(document.documentElement)
-        .getPropertyValue(`--${themes[currentPage]}-secondary`);
 }
 
-function movePage(direction) {
-    if(direction === 'right' && currentPage < 2) currentPage++;
-    if(direction === 'left' && currentPage > 0) currentPage--;
-    
-    pagesContainer.style.transform = `translateX(${-currentPage * 100}vw)`;
-    updateTheme();
-}
-
-// مدیریت کلیک منو
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentPage = parseInt(e.target.dataset.page);
-        movePage('');
+// مدیریت کلیک دکمه‌ها
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        alert('این ویژگی به زودی اضافه خواهد شد!');
     });
 });
-
-// مدیریت تب‌ها
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        // حذف کلاس active از همه تب‌های هم‌سطح
-        this.parentElement.querySelectorAll('.tab-btn').forEach(t => 
-            t.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
-// تنظیمات اولیه
-updateTheme();

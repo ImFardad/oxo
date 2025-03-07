@@ -8,102 +8,70 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="main-header">
-        <div class="logo">
-            <img src="logo.png" alt="لوگو" width="120">
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#" data-page="1" class="nav-link active">☕ کافی شاپ</a></li>
-                <li><a href="#" data-page="2" class="nav-link">🎮 گیم نت</a></li>
-                <li><a href="#" data-page="0" class="nav-link">🧩 بازی فکری</a></li>
-            </ul>
+    <!-- هدر -->
+    <header class="header">
+        <nav class="nav">
+            <img src="logo.svg" alt="لوگو" class="logo">
+            <button class="btn">تماس با ما</button>
         </nav>
+        
+        <div class="hero">
+            <div class="hero-content">
+                <h1>کافه گیم حرفه‌ای</h1>
+                <p>تجربه‌ای منحصر به فرد از ترکیب قهوه‌های ویژه و بازی‌های مدرن</p>
+                <button class="btn btn-primary">شروع کنید</button>
+            </div>
+            <img src="hero-img.svg" alt="تصویر هدر" class="hero-image">
+        </div>
     </header>
 
-    <div class="nav-arrows">
-        <button class="arrow-btn" onclick="movePage('left')">←</button>
-        <button class="arrow-btn" onclick="movePage('right')">→</button>
-    </div>
-
-    <div class="pages-container">
-        <!-- صفحه بازی فکری -->
-        <section id="puzzle-page" class="page">
-            <div class="hero-section">
-                <h1>باشگاه فکری متا</h1>
-                <p>تقویت مهارت‌های شناختی با بازی‌های گروهی پیشرفته</p>
-            </div>
-
-            <div class="tab-menu">
-                <div class="tab-btns">
-                    <button class="tab-btn active" data-tab="team">بازی‌های تیمی</button>
-                    <button class="tab-btn" data-tab="solo">چالش‌های فردی</button>
-                </div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card puzzle-card">
-                    <h3>مسابقات شطرنج ♟️</h3>
-                    <ul class="features">
-                        <li>✅ سیستم رتبه‌بندی ELO</li>
-                        <li>⏰ زمان‌بندی حرفه‌ای</li>
-                        <li>🏆 جوایز نقدی ماهانه</li>
-                    </ul>
-                    <button class="cta-btn">ثبت نام رایگان</button>
-                </div>
-            </div>
-        </section>
-
+    <!-- بخش صفحات -->
+    <main class="main">
         <!-- صفحه کافی شاپ -->
-        <section id="cafe-page" class="page active">
-            <div class="hero-section">
-                <h1>کافه تخصصی دانه</h1>
-                <p>لذت نوشیدنی‌های ویژه در محیطی دنج و آرام</p>
-            </div>
-
-            <div class="tab-menu">
-                <div class="tab-btns">
-                    <button class="tab-btn active" data-tab="cold">نوشیدنی‌های سرد ❄️</button>
-                    <button class="tab-btn" data-tab="hot">نوشیدنی‌های گرم ☕</button>
+        <section class="page cafe-page">
+            <div class="content">
+                <div class="text-content">
+                    <h2>کافه تخصصی</h2>
+                    <p>قهوه‌های ویژه از بهترین دانه‌های جهان</p>
                 </div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card cafe-card">
-                    <h3>آیس لته هنری 🎨</h3>
-                    <p>ترکیب قهوه اتیوپیایی با شیر ارگانیک</p>
-                    <div class="price-tag">۴۵,۰۰۰ تومان</div>
-                </div>
+                <img src="cafe-illustration.svg" alt="کافی شاپ" class="illustration">
             </div>
         </section>
 
         <!-- صفحه گیم نت -->
-        <section id="gamnet-page" class="page">
-            <div class="hero-section">
-                <h1>گیم‌نت حرفه‌ای</h1>
-                <p>تجهیزات سطح اول با پینگ زیر ۲۰ms</p>
-            </div>
-
-            <div class="tab-menu">
-                <div class="tab-btns">
-                    <button class="tab-btn active" data-tab="pc">ایستگاه‌های PC 🖥️</button>
-                    <button class="tab-btn" data-tab="console">کنسول‌ها 🎮</button>
+        <section class="page gamnet-page">
+            <div class="content reversed">
+                <div class="text-content">
+                    <h2>گیم نت حرفه‌ای</h2>
+                    <p>تجهیزات سطح اول با سرعت اینترنت گیگابیتی</p>
                 </div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card gamnet-card">
-                    <h3>RTX 4090 Station ⚡</h3>
-                    <ul class="specs">
-                        <li>پردازنده: Intel i9-13900K</li>
-                        <li>کارت گرافیک: RTX 4090 24GB</li>
-                        <li>مانیتور: 240Hz QHD</li>
-                    </ul>
-                    <div class="price-tag">ساعتی ۶۵,۰۰۰ تومان</div>
-                </div>
+                <img src="gamnet-illustration.svg" alt="گیم نت" class="illustration">
             </div>
         </section>
-    </div>
+
+        <!-- صفحه بازی فکری -->
+        <section class="page puzzle-page">
+            <div class="content">
+                <div class="text-content">
+                    <h2>باشگاه فکری</h2>
+                    <p>تقویت مهارت‌های ذهنی با بازی‌های گروهی</p>
+                </div>
+                <img src="puzzle-illustration.svg" alt="بازی فکری" class="illustration">
+            </div>
+        </section>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="logo-white.svg" alt="لوگو" class="footer-logo">
+            <div class="contact-info">
+                <p>آدرس: تهران، خیابان نمونه</p>
+                <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
+                <p>ایمیل: info@cafegame.ir</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
