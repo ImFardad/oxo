@@ -1,13 +1,9 @@
+// مدیریت نمایش بخش‌ها
 function showSection(sectionId) {
-    // تغییر تم
     document.body.className = `${sectionId}-theme`;
-    
-    // مخفی کردن تمام بخش‌ها
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
-    
-    // نمایش بخش مورد نظر
     document.getElementById(sectionId).classList.add('active');
 }
 
@@ -36,5 +32,27 @@ document.querySelectorAll('.search-bar').forEach(searchBar => {
             const title = product.querySelector('h3').textContent.toLowerCase();
             product.style.display = title.includes(term) ? 'flex' : 'none';
         });
+    });
+});
+
+// مدیریت touch برای هاور
+document.querySelectorAll('.product').forEach(product => {
+    let touchTimer;
+    
+    product.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        touchTimer = setTimeout(() => {
+            this.classList.add('active');
+        }, 100);
+    });
+    
+    product.addEventListener('touchend', function() {
+        clearTimeout(touchTimer);
+        this.classList.remove('active');
+    });
+    
+    product.addEventListener('touchmove', function() {
+        clearTimeout(touchTimer);
+        this.classList.remove('active');
     });
 });

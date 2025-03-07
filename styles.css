@@ -24,6 +24,7 @@ html {
 body {
   color: white;
   line-height: 1.6;
+  touch-action: manipulation;
 }
 
 /* هدر */
@@ -61,14 +62,24 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 6rem 1rem 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+}
+
+.category-selector::-webkit-scrollbar {
+  display: none;
 }
 
 .category-card {
-  width: 200px;
+  min-width: 200px;
   height: 200px;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
   transition: transform 0.3s;
 }
 
@@ -150,6 +161,7 @@ body {
   border-radius: 15px;
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(5px);
+  position: relative;
 }
 
 .product img {
@@ -251,24 +263,19 @@ body.puzzle-theme .price {
 
   .category-selector {
       padding: 5rem 1rem 1rem;
-      flex-wrap: wrap;
-  }
-
-  .category-card {
-      width: 150px;
-      height: 150px;
+      justify-content: flex-start;
   }
 
   .product {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      text-align: center;
+      text-align: right;
   }
 
   .product img {
-      width: 100%;
-      height: 200px;
-      margin-bottom: 1rem;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 0;
   }
 
   .details h3 {
@@ -281,5 +288,22 @@ body.puzzle-theme .price {
 
   .contact-info {
       grid-template-columns: 1fr;
+  }
+
+  .product::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.1);
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 15px;
+  }
+
+  .product:active::after {
+      opacity: 1;
   }
 }
