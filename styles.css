@@ -63,16 +63,13 @@ body {
 .intro-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
   padding: 100px 20px 50px;
   margin: 0 auto;
   max-width: 1000px;
 }
 
 .intro-card {
-  width: 250px;
   height: 250px;
-  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   transition: 
@@ -83,7 +80,6 @@ body {
 
 .intro-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255,255,255,0.4);
 }
 
 .intro-card img {
@@ -91,6 +87,10 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.intro-card img:hover {
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
 }
 
 .category-selector {
