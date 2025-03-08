@@ -36,23 +36,21 @@ document.querySelectorAll('.search-bar').forEach(searchBar => {
 });
 
 // مدیریت touch برای هاور
+// مدیریت تاچ برای محصولات
 document.querySelectorAll('.product').forEach(product => {
-    let touchTimer;
+    let startY = 0;
     
     product.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        touchTimer = setTimeout(() => {
-            this.classList.add('active');
-        }, 100);
-    });
+        startY = e.touches[0].clientY;
+    }, { passive: true });
     
-    product.addEventListener('touchend', function() {
-        clearTimeout(touchTimer);
-        this.classList.remove('active');
-    });
-    
-    product.addEventListener('touchmove', function() {
-        clearTimeout(touchTimer);
-        this.classList.remove('active');
-    });
+    product.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].clientY;
+        const deltaY = currentY - startY;
+        
+        // اگر حرکت عمودی بیشتر از 10px بود اسکرول فعال شود
+        if (Math.abs(deltaY) > 10) {
+            window.scrollBy(0, -deltaY);
+        }
+    }, { passive: true });
 });
