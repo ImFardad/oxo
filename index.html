@@ -10,9 +10,9 @@
 <body class="cafe-theme">
     <!-- هدر -->
     <header class="main-header">
-        <button class="events-btn">رویدادها</button>
+        <h1 class="site-title">گیم سنتر اُکسو</h1>
         <img src="src/logo.svg" alt="لوگو" class="logo">
-        <h1 class="site-title">کافه گیم</h1>
+        <button class="events-btn">رویدادها</button>
     </header>
 
     <!-- انتخاب دسته -->
@@ -33,120 +33,516 @@
         <!-- کافی شاپ -->
         <section id="cafe" class="section active">
             <div class="intro">
-                <h1>کافه تخصصی</h1>
-                <p>قهوه‌های ویژه از بهترین دانه‌های جهان</p>
+                <h1>کافه هری پاتر</h1>
+                <p>نوشیدنی ها و خوراکی های ویژه دنیای هاگزوارد</p>
             </div>
             
             <input type="text" class="search-bar" placeholder="جستجوی محصولات...">
             
             <div class="tabs">
                 <button class="tab active" data-cat="all">همه</button>
-                <button class="tab" data-cat="cold">نوشیدنی سرد</button>
+                <button class="tab" data-cat="coffee">قهوه</button>
                 <button class="tab" data-cat="hot">نوشیدنی گرم</button>
+                <button class="tab" data-cat="cold">نوشیدنی سرد</button>
+                <button class="tab" data-cat="herbal">نوشیدنی گیاهی</button>
+                <button class="tab" data-cat="milkshake">میلک شیک</button>
                 <button class="tab" data-cat="cake">کیک و شیرینی</button>
+                <button class="tab" data-cat="food">غذا</button>
             </div>
 
             <div class="products">
-                <!-- 5 محصول نمونه -->
-                <div class="product" data-cat="cold">
-                    <img src="coffee1.jpg" alt="آیس لته">
+                <div class="product" data-cat="coffee">
+                    <img src="Espresso.jpg" alt="اسپرسو">
                     <div class="details">
-                        <h3>آیس لته هنری</h3>
-                        <p>قهوه اتیوپیایی + شیر ارگانیک</p>
-                        <p class="price">۴۵,۰۰۰ تومان</p>
+                        <h3>اسپرسو</h3>
+                        <p>Espresso</p>
+                        <p class="price">۱۰۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="Espresso Macchiato.jpg" alt="اسپرسو ماکیاتو">
+                    <div class="details">
+                        <h3>اسپرسو ماکیاتو</h3>
+                        <p>Espresso Macchiato</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="Americano.jpg" alt="آمریکانو">
+                    <div class="details">
+                        <h3>آمریکانو(گرم /سرد)</h3>
+                        <p>Americano</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="Cappuccino.jpg" alt="کاپوچینو">
+                    <div class="details">
+                        <h3>کاپوچینو</h3>
+                        <p>Cappuccino</p>
+                        <p class="price">۱۴۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="coffee4.jpg" alt="لاته">
+                    <div class="details">
+                        <h3>لاته(گرم /سرد)</h3>
+                        <p>Latte</p>
+                        <p class="price">۱۵۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="Mocha.jpg" alt="موکا">
+                    <div class="details">
+                        <h3>موکا (گرم /سرد)</h3>
+                        <p>Mocha</p>
+                        <p class="price">۱۶۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee>
+                    <img src="Caramel macchiato.jpg" alt="کارامل ماکیاتو">
+                    <div class="details">
+                        <h3>کارامل ماکیاتو (گرم /سرد)</h3>
+                        <p>Caramel macchiato</p>
+                        <p class="price">۱۶۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="chemex.jpg" alt="کمکس">
+                    <div class="details">
+                        <h3>کمکس</h3>
+                        <p>chemex</p>
+                        <p class="price">۱۶۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="affogato.jpg" alt="آفوگاتو">
+                    <div class="details">
+                        <h3>آفوگاتو</h3>
+                        <p>affogato</p>
+                        <p class="price">۱۴۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="coffee">
+                    <img src="Extra shot of syrup.jpg" alt="شات اضافه سیروپ">
+                    <div class="details">
+                        <h3>شات اضافه سیروپ</h3>
+                        <p>آیریش / فندق / کوکی / نارگیل</p>
+                        <p class="price">۵۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+
+                <div class="product" data-cat="hot">
+                    <img src="Sunshine tea.jpg" alt="دمنوش آفتاب">
+                    <div class="details">
+                        <h3>دمنوش آفتاب</h3>
+                        <p>لوندر / بابونه / انبه / رز زرد</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
                     </div>
                 </div>
                 <div class="product" data-cat="hot">
-                    <img src="coffee2.jpg" alt="کاپوچینو">
+                    <img src="Black tea.jpg" alt="چای سیاهچای سیاه">
                     <div class="details">
-                        <h3>کاپوچینو کلاسیک</h3>
-                        <p>اسپرسو + شیر بخار داده شده</p>
-                        <p class="price">۳۵,۰۰۰ تومان</p>
+                        <h3>چای سیاه</h3>
+                        <p>Black tea</p>
+                        <p class="price">۷۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="Silk road tea.jpg" alt="دمنوش راه ابریشم">
+                    <div class="details">
+                        <h3>دمنوش راه ابریشم</h3>
+                        <p>چای سبز / آناناس / لمون گرس / به لیمو / استویا</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="Special tea.jpg" alt="دمنوش مخصوص">
+                    <div class="details">
+                        <h3>دمنوش مخصوص</h3>
+                        <p>زعفران / هل / سیب</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="Creation Tea.jpg" alt="دمنوش آفرینش">
+                    <div class="details">
+                        <h3>دمنوش آفرینش</h3>
+                        <p>میوه های استوایی/توت فرنگی/نارگیل/کیوی</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="Blue ocean tea.jpg" alt="دمنوش اقیانوس آبی">
+                    <div class="details">
+                        <h3>دمنوش اقیانوس آبی</h3>
+                        <p>نخود پروانه ای/بلوبری/لوندر فرانسوی</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="Masala tea.jpg" alt="چای ماسالا">
+                    <div class="details">
+                        <h3>چای ماسالا</h3>
+                        <p>شیر/زنجبیل/ دارچین/ ادویه های هندی</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="TEA LATTE.jpg" alt="شیر چای کاراملی">
+                    <div class="details">
+                        <h3>شیر چای کاراملی</h3>
+                        <p>چای/ شیر/ کارامل/ زنجبیل/ شکر</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="hot">
+                    <img src="HOT MILK.jpg" alt="شیر گرم">
+                    <div class="details">
+                        <h3>شیر گرم</h3>
+                        <p>HOT MILK</p>
+                        <p class="price">۵۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+
+                <div class="product" data-cat="cold">
+                    <img src="Passion Fruit Mojito.jpg" alt="موهیتو پشن فروت">
+                    <div class="details">
+                        <h3>موهیتو پشن فروت</h3>
+                        <p>لیمو / نعناع / رام / پشن فروت</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="BUTTER BEER.jpg" alt="ابجو کره ای">
+                    <div class="details">
+                        <h3>ابجو کره ای</h3>
+                        <p>نوشیدنی مخصوص هاگوارتز</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="POPCORN COLADA.jpg" alt="پاپ کورن کولادا">
+                    <div class="details">
+                        <h3>پاپ کورن کولادا</h3>
+                        <p>نارگیل/ پاپ کورن/ آلوئه ورا</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="GIN LAVENDER.jpg" alt="جین لوندر">
+                    <div class="details">
+                        <h3>جین لوندر</h3>
+                        <p>لوندر / بلوبری تازه/ جین</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="MOJITO.jpg" alt="موهیتو">
+                    <div class="details">
+                        <h3>موهیتو</h3>
+                        <p>لیمو/ نعنا/ رام</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="BUBBLE GUM.jpg" alt="بابل گام">
+                    <div class="details">
+                        <h3>بابل گام</h3>
+                        <p>گوآوا/ بلومیکس/ آلوورا</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="BULLFROG.jpg" alt="بول فراگ">
+                    <div class="details">
+                        <h3>بول فراگ</h3>
+                        <p>پرتقال خونی/ بلومیکس/ انرژی زا</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="LEMONADE.jpg" alt="لیموناد">
+                    <div class="details">
+                        <h3>لیموناد</h3>
+                        <p>لیمو/ سودا/ رام</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="ESPRESSO MARTINI.jpg" alt="اسپرسو مارتینی">
+                    <div class="details">
+                        <h3>اسپرسو مارتینی</h3>
+                        <p>اسپرسو/ ویسکی</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="ORANGE STRAR.jpg" alt="اورنج استار">
+                    <div class="details">
+                        <h3>اورنج استار</h3>
+                        <p>پرتقال/ بادیان/ لیمو</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="BLACK FOREST.jpg" alt="بلک فارست">
+                    <div class="details">
+                        <h3>بلک فارست</h3>
+                        <p>سیب سبز/ آگاوه/ کیوانو</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="MARGARITA.jpg" alt="مارگاریتا">
+                    <div class="details">
+                        <h3>مارگاریتا</h3>
+                        <p>پرتقال/ لیمو/ آگاوه</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="GIN GRASS.jpg" alt="جین گرس">
+                    <div class="details">
+                        <h3>جین گرس</h3>
+                        <p>جین / تریپل سک/ لمون گرس</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cold">
+                    <img src="SIGNATURE ITEM.jpg" alt="پیشنهاد بارتندر">
+                    <div class="details">
+                        <h3>پیشنهاد بارتندر</h3>
+                        <p>SIGNATURE ITEM</p>
+                        <p class="price">۱۲۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+                <div class="product" data-cat="herbal">
+                    <img src="TROPICAL.jpg" alt="تروپیکال">
+                    <div class="details">
+                        <h3>تروپیکال</h3>
+                        <p>میوه های استوایی</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="herbal">
+                    <img src="MILK BERRY.jpg" alt="میلک بری">
+                    <div class="details">
+                        <h3>میلک بری</h3>
+                        <p>بلوبری/ لوندر/ شیر</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="herbal">
+                    <img src="ROSE GOLD.jpg" alt="رز گلد">
+                    <div class="details">
+                        <h3>رز گلد</h3>
+                        <p>انبه/ بابونه/ رز زرد/ پشن فروت</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="herbal">
+                    <img src="ROYAL.jpg" alt="رویال">
+                    <div class="details">
+                        <h3>رویال</h3>
+                        <p>زعفران/ سیب/ نارگیل</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="herbal">
+                    <img src="LEMOSA.jpg" alt="لموسا">
+                    <div class="details">
+                        <h3>لموسا</h3>
+                        <p>چای سبز/ آناناس/ لیمو</p>
+                        <p class="price">۱۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+
+                <div class="product" data-cat="milkshake">
+                    <img src="BISCUIT MILKSHAKE.jpg" alt="میلک شیک بیسکوییت">
+                    <div class="details">
+                        <h3>میلک شیک بیسکوییت</h3>
+                        <p>BISCUIT MILKSHAKE</p>
+                        <p class="price">۱۹۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="milkshake">
+                    <img src="NUTELLA MILKSHAKE.jpg" alt="میلک شیک نوتلا">
+                    <div class="details">
+                        <h3>میلک شیک نوتلا</h3>
+                        <p>NUTELLA MILKSHAKE</p>
+                        <p class="price">۱۹۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="milkshake">
+                    <img src="LOTUS COOKIE MILKSHAKE.jpg" alt="میلک شیک کوکی لوتوس">
+                    <div class="details">
+                        <h3>میلک شیک کوکی لوتوس</h3>
+                        <p>LOTUS COOKIE MILKSHAKE</p>
+                        <p class="price">۱۹۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+
+                <div class="product" data-cat="cake">
+                    <img src="HARRY POTTER DESSERT.jpg" alt="دسر هری پاتر">
+                    <div class="details">
+                        <h3>دسر هری پاتر</h3>
+                        <p>HARRY POTTER DESSERT</p>
+                        <p class="price">۲۱۳,۰۰۰ تومان</p>
                     </div>
                 </div>
                 <div class="product" data-cat="cake">
-                    <img src="cake1.jpg" alt="کیک شکلاتی">
+                    <img src="CARROT & WALNUT CAKE.jpg" alt="کیک هویج و گردو">
                     <div class="details">
-                        <h3>کیک شکلاتی بلژیکی</h3>
-                        <p>با شکلات 70% کاکائو</p>
-                        <p class="price">۲۵,۰۰۰ تومان</p>
+                        <h3>کیک هویج و گردو</h3>
+                        <p>CARROT & WALNUT CAKE</p>
+                        <p class="price">۱۶۳,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <div class="product" data-cat="cold">
-                    <img src="coffee3.jpg" alt="آفوگاتو">
+                <div class="product" data-cat="cake">
+                    <img src="CHOCOLATE CAKE.jpg" alt="کیک شکلات">
                     <div class="details">
-                        <h3>آفوگاتو ویژه</h3>
-                        <p>اسپرسو + بستنی وانیلی</p>
-                        <p class="price">۵۰,۰۰۰ تومان</p>
+                        <h3>کیک شکلات</h3>
+                        <p>CHOCOLATE CAKE</p>
+                        <p class="price">۱۶۳,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <div class="product" data-cat="hot">
-                    <img src="coffee4.jpg" alt="موکا">
+                <div class="product" data-cat="cake">
+                    <img src="TRES LECHES CAKE.jpg" alt="کیک سه شیر">
                     <div class="details">
-                        <h3>موکا داغ</h3>
-                        <p>ترکیب قهوه و شکلات داغ</p>
-                        <p class="price">۴۰,۰۰۰ تومان</p>
+                        <h3>کیک سه شیر</h3>
+                        <p>TRES LECHES CAKE</p>
+                        <p class="price">۱۹۳,۰۰۰ تومان</p>
                     </div>
                 </div>
+                <div class="product" data-cat="cake">
+                    <img src="TIRAMISU.jpg" alt="تیرامیسو">
+                    <div class="details">
+                        <h3>تیرامیسو</h3>
+                        <p>TIRAMISU</p>
+                        <p class="price">۲۰۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cake">
+                    <img src="SAN SEBASTIAN CHEESECAKE.jpg" alt="چیزکیک سن سباستین">
+                    <div class="details">
+                        <h3>چیزکیک سن سباستین</h3>
+                        <p>SAN SEBASTIAN CHEESECAKE</p>
+                        <p class="price">۲۱۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="cake">
+                    <img src="HARRY POTTER CAKE.jpg" alt="کیک هری پاتر">
+                    <div class="details">
+                        <h3>کیک هری پاتر</h3>
+                        <p>HARRY POTTER CAKE</p>
+                        <p class="price">۳۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+
+
+                <div class="product" data-cat="food">
+                    <img src="MEAT LASAGNA.jpg" alt="لازانیا گوشت">
+                    <div class="details">
+                        <h3>لازانیا گوشت</h3>
+                        <p>MEAT LASAGNA</p>
+                        <p class="price">۴۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="food">
+                    <img src="SPINACH & CHICKEN LASAGNA.jpg" alt="لازانیا مرغ و اسفناج">
+                    <div class="details">
+                        <h3>لازانیا مرغ و اسفناج</h3>
+                        <p>SPINACH & CHICKEN LASAGNA</p>
+                        <p class="price">۴۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="food">
+                    <img src="MACARONI SALAD.jpg" alt="سالاد ماکارونی">
+                    <div class="details">
+                        <h3>سالاد ماکارونی</h3>
+                        <p>MACARONI SALAD</p>
+                        <p class="price">۲۳۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="food">
+                    <img src="SAUSAGE AND FRENCH FRIES.jpg" alt="سوسیس و سیب زمینی سرخ کرده">
+                    <div class="details">
+                        <h3>سوسیس و سیب زمینی سرخ کرده</h3>
+                        <p>SAUSAGE AND FRENCH FRIES</p>
+                        <p class="price">۲۶۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="food">
+                    <img src="FRENCH FRIES.jpg" alt="سیب زمینی سرخ کرده">
+                    <div class="details">
+                        <h3>سیب زمینی سرخ کرده</h3>
+                        <p>FRENCH FRIES</p>
+                        <p class="price">۱۸۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+                <div class="product" data-cat="food">
+                    <img src="OXO COMBO.jpg" alt="کومبو اوکسو">
+                    <div class="details">
+                        <h3>کومبو اُکسو</h3>
+                        <p>سوسیس و سیب زمینی سرخ کرده +
+                            آبجو کره ای</p>
+                        <p class="price">۱۹۳,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- گیم نت -->
         <section id="gamnet" class="section">
             <div class="intro">
-                <h1>گیم نت پیشرفته</h1>
-                <p>تجهیزات حرفه‌ای با بهترین سخت افزارها</p>
+                <h1>گیم نت اُکسو</h1>
+                <p>کنسول ها و عینک واقعیت مجازی</p>
             </div>
             
             <input type="text" class="search-bar" placeholder="جستجوی محصولات...">
             
             <div class="tabs">
                 <button class="tab active" data-cat="all">همه</button>
-                <button class="tab" data-cat="pc">PC</button>
-                <button class="tab" data-cat="ps">پلی استیشن</button>
-                <button class="tab" data-cat="vr">VR</button>
+                <button class="tab" data-cat="ps5">پلی استیشن</button>
+                <button class="tab" data-cat="vr">واقعیت مجازی</button>
             </div>
 
             <div class="products">
-                <!-- 5 محصول نمونه -->
-                <div class="product" data-cat="pc">
-                    <img src="pc1.jpg" alt="ایستگاه بازی">
+                <div class="product" data-cat="ps5">
+                    <img src="ps5.jpg" alt="PLAY STATION 5">
                     <div class="details">
-                        <h3>ایستگاه RTX 4090</h3>
-                        <p>پردازنده i9 + مانیتور 240Hz</p>
-                        <p class="price">ساعتی ۷۵,۰۰۰ تومان</p>
+                        <h3>PLAY STATION 5</h3>
+                        <p>(30 دقیقه)</p>
+                        <p class="price">۱۰۰,۰۰۰ تومان</p>
                     </div>
                 </div>
-                <div class="product" data-cat="ps">
-                    <img src="ps5.jpg" alt="پلی استیشن 5">
+                <div class="product" data-cat="ps5">
+                    <img src="ps5.jpg" alt="PLAY STATION 5">
                     <div class="details">
-                        <h3>پلی استیشن 5</h3>
-                        <p>با 50 بازی AAA</p>
-                        <p class="price">ساعتی ۵۰,۰۰۰ تومان</p>
-                    </div>
-                </div>
-                <div class="product" data-cat="vr">
-                    <img src="vr1.jpg" alt="هدست VR">
-                    <div class="details">
-                        <h3>هدست Meta Quest 3</h3>
-                        <p>تجربه واقعیت مجازی پیشرفته</p>
-                        <p class="price">ساعتی ۶۵,۰۰۰ تومان</p>
-                    </div>
-                </div>
-                <div class="product" data-cat="pc">
-                    <img src="pc2.jpg" alt="ایستگاه بازی">
-                    <div class="details">
-                        <h3>ایستگاه RX 7900 XTX</h3>
-                        <p>پردازنده Ryzen 9 + مانیتور 4K</p>
-                        <p class="price">ساعتی ۸۰,۰۰۰ تومان</p>
+                        <h3>PLAY STATION 5</h3>
+                        <p>(60 دقیقه)</p>
+                        <p class="price">۲۰۰,۰۰۰ تومان</p>
                     </div>
                 </div>
                 <div class="product" data-cat="vr">
-                    <img src="vr2.jpg" alt="هدست VR">
+                    <img src="vr.jpg" alt="عینک واقعیت مجازی">
                     <div class="details">
-                        <h3>هدست Valve Index</h3>
-                        <p>بهترین تجربه VR برای بازی‌های حرفه‌ای</p>
-                        <p class="price">ساعتی ۷۰,۰۰۰ تومان</p>
+                        <h3>عینک واقعیت مجازی</h3>
+                        <p>(30 دقیقه)</p>
+                        <p class="price">۱۵۰,۰۰۰ تومان</p>
                     </div>
                 </div>
             </div>
@@ -155,59 +551,78 @@
         <!-- بازی فکری -->
         <section id="puzzle" class="section">
             <div class="intro">
-                <h1>باشگاه فکری</h1>
-                <p>چالش‌های گروهی برای تقویت مهارت‌ها</p>
+                <h1>بازی های فکری و گیم بورد</h1>
+                <p>بازی فکری ، مسابقه ، مافیه و ...</p>
             </div>
             
             <input type="text" class="search-bar" placeholder="جستجوی محصولات...">
             
             <div class="tabs">
                 <button class="tab active" data-cat="all">همه</button>
-                <button class="tab" data-cat="duo">دو نفره</button>
-                <button class="tab" data-cat="group">گروهی</button>
-                <button class="tab" data-cat="case">پرونده‌ای</button>
+                <button class="tab" data-cat="g1">بازی های گروه یک</button>
+                <button class="tab" data-cat="g2">بازی های گروه دو</button>
+                <button class="tab" data-cat="g3">بازی های گروه سه</button>
             </div>
 
             <div class="products">
-                <!-- 5 محصول نمونه -->
-                <div class="product" data-cat="duo">
-                    <img src="chess.jpg" alt="شطرنج">
+                <div class="product" data-cat="g1">
+                    <img src=".jpg" alt="">
                     <div class="details">
-                        <h3>مسابقات شطرنج</h3>
-                        <p>با مربیان بین‌المللی</p>
-                        <p class="price">ورودی ۲۵,۰۰۰ تومان</p>
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
                     </div>
                 </div>
-                <div class="product" data-cat="group">
-                    <img src="puzzle1.jpg" alt="پازل گروهی">
+            </div>
+            <div class="products">
+                <div class="product" data-cat="g1">
+                    <img src=".jpg" alt="">
                     <div class="details">
-                        <h3>پازل سه بعدی</h3>
-                        <p>چالش معماری تاریخی</p>
-                        <p class="price">ساعتی ۲۰,۰۰۰ تومان</p>
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
                     </div>
                 </div>
-                <div class="product" data-cat="case">
-                    <img src="mystery.jpg" alt="پرونده‌ای">
+            </div>
+            <div class="products">
+                <div class="product" data-cat="g1">
+                    <img src=".jpg" alt="">
                     <div class="details">
-                        <h3>پرونده جنایی</h3>
-                        <p>حل معماهای پیچیده پلیسی</p>
-                        <p class="price">ورودی ۳۰,۰۰۰ تومان</p>
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
                     </div>
                 </div>
-                <div class="product" data-cat="duo">
-                    <img src="backgammon.jpg" alt="تخته نرد">
+            </div>
+
+
+            <div class="products">
+                <div class="product" data-cat="g2">
+                    <img src=".jpg" alt="">
                     <div class="details">
-                        <h3>تخته نرد حرفه‌ای</h3>
-                        <p>رقابت با بازیکنان سطح بالا</p>
-                        <p class="price">ورودی ۲۰,۰۰۰ تومان</p>
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
                     </div>
                 </div>
-                <div class="product" data-cat="group">
-                    <img src="escape-room.jpg" alt="اتاق فرار">
+            </div>
+            <div class="products">
+                <div class="product" data-cat="g2">
+                    <img src=".jpg" alt="">
                     <div class="details">
-                        <h3>اتاق فرار مجازی</h3>
-                        <p>تجربه تعاملی گروهی</p>
-                        <p class="price">نفری ۴۰,۰۰۰ تومان</p>
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="product" data-cat="g2">
+                    <img src=".jpg" alt="">
+                    <div class="details">
+                        <h3></h3>
+                        <p></p>
+                        <p class="price"></p>
                     </div>
                 </div>
             </div>
@@ -218,17 +633,17 @@
     <footer class="footer">
         <div class="contact-info">
             <div>
-                <h3>تماس با ما</h3>
-                <p>📞 ۰۹۱۲۳۴۵۶۷۸۹</p>
-                <p>📞 ۰۲۱-۲۲۲۲۲۲۲۲</p>
+                <h3>جهت رزرو</h3>
+                <p>📞 0933-494-8996</p>
             </div>
             <div>
                 <h3>آدرس</h3>
-                <p>📍 تهران، خیابان نمونه، پلاک ۱۲۳</p>
+                <p>📍 شعبه یک: پونک-همیلاسنتر-طبقه دو-واحد۲۰۹</p>
+                <p>📍 شعبه دو: پاسداران-میدان هروی-هدیش مال-طبقه شش</p>
             </div>
             <div>
                 <h3>ساعات کاری</h3>
-                <p>⏰ هر روز ۸ صبح تا ۱۲ شب</p>
+                <p>⏰ هر روز ۱۰ صبح تا ۱۱ شب</p>
             </div>
         </div>
     </footer>
