@@ -49,7 +49,7 @@ body {
 }
 
 .events-btn {
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 4.3rem;
   border-radius: 25px;
   border: none;
   background: rgba(255,255,255,0.1);
@@ -301,6 +301,10 @@ body.puzzle-theme .price {
 
   .site-title {
       display: none;
+  }
+
+  .events-btn {
+    padding: 0.5rem 2rem;
   }
 
   .logo {
